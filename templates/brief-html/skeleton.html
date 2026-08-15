@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{PRODUTO}} — Affiliate Marketing Brief</title>
+<style>
+/* COLE AQUI o conteúdo de templates/brief-html/brief.css
+   Ajuste apenas as CSS custom properties de marca no topo (--accent, --bg, --card).
+   NÃO reescreva o CSS — ele já é responsivo e testado. */
+</style>
+</head>
+<body>
+
+<button class="hamburger" onclick="toggleSidebar()">☰</button>
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">{{PRODUTO}} Affiliate Brief</div>
+  <nav class="sidebar-nav">
+
+    <div class="nav-section">
+      <div class="nav-section-title">Overview</div>
+      <a class="nav-item active" onclick="showSection('overview', this)">📋 Visão Geral</a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">Audience</div>
+      <a class="nav-item" onclick="showSection('target', this)">🎯 Target Audience</a>
+      <a class="nav-item" onclick="showSection('avatars', this)">👤 Avatares <span class="badge">{{N_AVATARES}}</span></a>
+      <a class="nav-item" onclick="showSection('psychology', this)">🧠 Won't Tell / Can't Tell</a>
+      <a class="nav-item" onclick="showSection('emotional-code', this)">💡 Código Emocional</a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">Copywriting</div>
+      <a class="nav-item" onclick="showSection('bigidea', this)">💎 Big Idea &amp; Mecanismo</a>
+      <a class="nav-item" onclick="showSection('ingredients', this)">🧪 Ingredientes</a>
+      <a class="nav-item" onclick="showSection('forces', this)">💪 Forças Vitais &amp; VOC</a>
+      <a class="nav-item" onclick="showSection('objections', this)">🛡️ Objeções</a>
+      <a class="nav-item" onclick="showSection('awareness', this)">📊 Estágios de Consciência</a>
+      <a class="nav-item" onclick="showSection('estruturas', this)">📐 Estruturas Invisíveis <span class="badge">5</span></a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">Creative Assets</div>
+      <a class="nav-item" onclick="showSection('hooks', this)">🪝 Ângulos &amp; Hooks <span class="badge">8</span></a>
+      <a class="nav-item" onclick="showSection('longtext', this)">📝 Long Text Ads <span class="badge">8</span></a>
+      <a class="nav-item" onclick="showSection('statics', this)">🖼️ Imagens Estáticas <span class="badge">8</span></a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">Performance</div>
+      <a class="nav-item" onclick="showSection('metrics', this)">📈 Métricas de Tráfego</a>
+    </div>
+
+  </nav>
+</aside>
+
+<main class="main">
+  <h2 id="page-title">Visão Geral</h2>
+
+  <!-- ══ 1. OVERVIEW ══ -->
+  <div class="section active" id="sec-overview">
+    <!-- Resumo executivo · Por que promover · TAM · Características ·
+         Promessas centrais · Garantia · Soluções alternativas (.alt-item) -->
+  </div>
+
+  <!-- ══ 2. TARGET ══ -->
+  <div class="section" id="sec-target">
+    <!-- Avatar primário · secundários · localização · perfil · renda -->
+  </div>
+
+  <!-- ══ 3. AVATARES (accordion) ══ -->
+  <div class="section" id="sec-avatars">
+    <!-- Repetir por avatar: -->
+    <div class="avatar-card">
+      <div class="avatar-card-header" onclick="toggleAvatar(this)">
+        <span class="avatar-tag">{{EMOJI}} {{N}}. {{NOME_DO_AVATAR}}</span>
+        <span class="avatar-meta">{{idade}} | {{renda}} | {{tempo de problema}}</span>
+      </div>
+      <div class="avatar-card-body">
+        <!-- narrativa · 🔍 sinais · 🎯 motivadores · ⚡ gatilho ·
+             🤐 Won't Tell (.emotion-quote) · 🧠 Can't Tell -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 4. PSYCHOLOGY ══ -->
+  <div class="section" id="sec-psychology">
+    <!-- Won't Tell consolidado · Can't Tell (5 blocos + linha-flecha) ·
+         Escada de Profundidade Emocional (4 níveis) -->
+  </div>
+
+  <!-- ══ 5. CÓDIGO EMOCIONAL ══ -->
+  <div class="section" id="sec-emotional-code">
+    <!-- Por avatar: Ethos / Pathos / Formato + ⚠️ Nota de Aplicação -->
+  </div>
+
+  <!-- ══ 6. BIG IDEA & MECANISMO ══ -->
+  <div class="section" id="sec-bigidea">
+    <!-- Big Idea · One Belief · Hierarquia de Revelação (6) · Causa Raiz ·
+         Cadeia causal · Mecanismo do Problema (vilões) · Mecanismo da Solução -->
+  </div>
+
+  <!-- ══ 7. INGREDIENTES ══ -->
+  <div class="section" id="sec-ingredients"></div>
+
+  <!-- ══ 8. FORÇAS VITAIS & VOC ══ -->
+  <div class="section" id="sec-forces">
+    <!-- 7 forças · benefícios emocionais · VOC por tema (.emotion-quote) -->
+  </div>
+
+  <!-- ══ 9. OBJEÇÕES ══ -->
+  <div class="section" id="sec-objections"></div>
+
+  <!-- ══ 10. ESTÁGIOS DE CONSCIÊNCIA ══ -->
+  <div class="section" id="sec-awareness"></div>
+
+  <!-- ══ 11. ESTRUTURAS INVISÍVEIS (ads decompostos, EN/PT) ══ -->
+  <div class="section" id="sec-estruturas">
+    <div class="info-card struct-card" id="struct-ad1">
+      <button class="lang-btn active" onclick="switchLang('struct-ad1','en',this)">🇺🇸 EN</button>
+      <button class="lang-btn" onclick="switchLang('struct-ad1','ptbr',this)">🇧🇷 PT-BR</button>
+      <div class="lang-content en"><!-- blocos rotulados --></div>
+      <div class="lang-content ptbr" style="display:none"></div>
+    </div>
+  </div>
+
+  <!-- ══ 12. ÂNGULOS & HOOKS ══ -->
+  <div class="section" id="sec-hooks">
+    <div class="angle-card" id="angle-1">
+      <div class="angle-header"><span class="angle-num">1</span> {{NOME_DO_ANGULO}}</div>
+      <div class="hook-item" id="hook-1-0">
+        {{HOOK}}
+        <button class="copy-btn-sm" onclick="copyHook('hook-1-0')">📋</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 13. LONG TEXT ADS (8, EN/PT, copiável) ══ -->
+  <div class="section" id="sec-longtext">
+    <div class="ad-card" id="ad-1">
+      <div class="ad-card-header">
+        <span class="ad-label">AD 1</span> {{HEADLINE}}
+        <button class="lang-btn active" onclick="switchLang('ad-1','en',this)">🇺🇸 EN</button>
+        <button class="lang-btn" onclick="switchLang('ad-1','ptbr',this)">🇧🇷 PT-BR</button>
+      </div>
+      <div class="ad-card-body"><div class="lang-content en"></div>
+        <div class="lang-content ptbr" style="display:none"></div></div>
+      <div class="ad-card-footer">
+        <button class="copy-btn" onclick="copyAdText('ad-1')">Copy Full Ad Text</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 14. IMAGENS ESTÁTICAS ══ -->
+  <div class="section" id="sec-statics">
+    <!-- Por conceito: preview (.ad-preview), ângulo, prompt copiável,
+         plataforma de geração, status -->
+  </div>
+
+  <!-- ══ 15. MÉTRICAS ══ -->
+  <div class="section" id="sec-metrics"></div>
+
+</main>
+
+<div class="toast" id="toast">✓ Copiado!</div>
+
+<script>
+/* COLE AQUI o conteúdo de templates/brief-html/brief.js
+   Funções: showSection · toggleAvatar · toggleSidebar · showToast
+            copyAdText · copyHook · switchLang · openLightbox */
+</script>
+</body>
+</html>

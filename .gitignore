@@ -1,0 +1,16 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Temporários e rascunhos — nada disso entra em public/
+*.tmp
+*.bak
+*_old.*
+_scratch/

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{HEADLINE}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+/* COLE AQUI templates/advertorial/advertorial.css (inclui o CSS do quiz .cwq-*)
+   Ajuste só as custom properties de marca. NÃO reescreva. */
+</style>
+</head>
+<body class="kmd-advertorial">
+
+<!-- ═══ MASTHEAD (arquétipo NEWS/EXPOSÉ) ═══
+<div class="masthead"><div class="masthead-in">
+  <span class="masthead-word">{{PUBLICACAO}}</span>
+  <span class="masthead-tag">HEALTH</span>
+</div></div>
+<div class="breadcrumb-bar">Health <span class="bc-sep">›</span>
+  <span class="bc-current">{{CATEGORIA}}</span></div>
+-->
+
+<!-- ═══ ADV BAR (arquétipo STORY/TESTIMONIAL) ═══ -->
+<div class="adv-bar">
+  <div class="brand">{{PUBLICACAO}}</div>
+  <div class="vol-line">{{VOL. XX · EDIÇÃO}}</div>
+  <div class="cat-tags">{{TAGS}}</div>
+</div>
+
+<h1>{{HEADLINE}}</h1>
+
+<div class="byline">
+  <div class="avatar"><img src="imagens/{{AUTOR}}.jpg" alt=""></div>
+  <div class="who">
+    <div class="bylinebar-name">{{NOME_AUTOR}}</div>
+    <div class="bylinebar-role">{{CARGO}}</div>
+  </div>
+  <div class="meta">{{DATA}} · {{TEMPO_LEITURA}} · <span class="bylinebar-views">{{VIEWS}}</span></div>
+</div>
+
+<div class="seen-on">
+  <div class="lbl">AS SEEN ON</div>
+  <div class="logos"><!-- ⚠️ só logos com direito de uso real --></div>
+</div>
+
+<div class="article-body__content">
+
+  <!-- ┌──────────────────────────────────────────────────────┐
+       │ ESQUELETO DE 22 SEÇÕES — arquétipo STORY (ADV2/ADV3) │
+       │ Cada H2 abaixo é obrigatório e nesta ordem.          │
+       └──────────────────────────────────────────────────────┘ -->
+
+  <h2>1. {{A vida ANTES — o cabelo/atributo como identidade}}</h2>
+  <p class="body-graf"></p>
+
+  <h2>2. {{O momento assustador em que percebeu}}</h2>
+
+  <h2>3. {{De [identidade] a se esconder}}</h2>
+
+  <h2>4. {{O diagnóstico de 90 segundos que não resolveu}}</h2>
+
+  <h2>5. {{O post das 11PM com 400 comentários (e o comentário da autoridade)}}</h2>
+
+  <h2>6. {{O segredo exposto: por que TODAS as soluções falham no MESMO passo}}</h2>
+  <div class="sidebar-box"><h3>{{O problema real está a N milímetros de profundidade}}</h3></div>
+
+  <h2>7. {{A fórmula que bateu com o que a autoridade explicou, ponto a ponto}}</h2>
+  <div class="answer-block">
+    <div class="ab-kicker"></div><div class="ab-title"></div><div class="ab-sub"></div>
+  </div>
+
+  <h2>8. {{Chamaram de PRODUTO®}}</h2>
+
+  <h2>9. {{A ciência por trás}}</h2>
+  <!-- 1 .front-card por ativo: .fc-label / .fc-sub / .fc-sym -->
+
+  <h2>10. {{O sistema de N etapas}}</h2>
+  <!-- 1 .path-card por etapa: .pc-head / .pc-body -->
+
+  <div class="cta-wrap">
+    <a class="cta-btn" href="#">{{CTA}}</a>
+    <div class="cta-sub">{{garantia · frete · results vary}}</div>
+  </div>
+  <div class="scarcity">
+    <div class="scarcity-top"></div>
+    <div class="scarcity-track"><i></i></div>
+    <div class="scarcity-label"></div>
+  </div>
+
+  <h2>11. {{Timeline de 90 dias, semana a semana}}</h2>
+  <div class="tl-stage"><h3>{{Semanas 1–2: primeiro sinal (menos queda)}}</h3></div>
+  <div class="tl-stage"><h3>{{Semanas 3–4}}</h3></div>
+  <div class="tl-stage"><h3>{{Semanas 5–6: o momento de virada}}</h3></div>
+  <div class="tl-stage"><h3>{{Mês 3: o payoff identitário}}</h3></div>
+
+  <h2>12. Real Women. Real Results.</h2>
+  <!-- 1 .tst por depoimento:
+       .tst-eyebrow · .tst-obj (a objeção que ela tinha) · .tst-quote
+       .tst-photo (.tp-cap/.tp-note) · .tst-foot (.tst-name/.tst-meta/.tst-verified)
+       ⚠️ depoimentos reais e autorizados, ou marcados como dramatização -->
+
+  <h2>13. {{4 sinais de que foi feito para alguém como você}}</h2>
+
+  <h2>14. Who It Is NOT For</h2>
+  <!-- desqualificação honesta — é o bloco que mais sobe conversão do formato -->
+
+  <h2>15. {{O custo real de não resolver}}</h2>
+  <div class="sidebar-box"><h3>{{PRODUTO}} vs. {{SOLUÇÃO DOMINANTE}}</h3></div>
+
+  <h2>16. {{A razão real pela qual as pessoas desistem}}</h2>
+
+  <h2>17. {{Onde conseguir (e como novos clientes estão pegando X% off)}}</h2>
+  <div class="cta-wrap">
+    <a class="cta-btn" href="#">{{CTA}}</a>
+    <div class="cta-sub"></div>
+  </div>
+
+  <!-- ═══ COMENTÁRIOS (arquétipo NEWS/EXPOSÉ — ADV4) ═══
+  <div class="fbw">
+    <div class="fbw-top"><span class="fbw-brand"></span>
+      <span class="fbw-count"></span><span class="fbw-sort"></span></div>
+    <div class="fbc">
+      <div class="fbc-av"></div>
+      <div class="fbc-main">
+        <div class="fbc-bubble"><span class="fbc-name"></span><span class="fbc-text"></span></div>
+        <div class="fbc-acts"><span class="fbc-likes"></span></div>
+      </div>
+    </div>
+    <div class="fbc reply"></div>
+    <div class="fbw-more"></div>
+  </div>
+  ⚠️ Comentários fabricados apresentados como reais são um risco de compliance.
+     Use só se forem reais/autorizados, ou rotule a seção claramente.
+  -->
+
+</div>
+
+<footer>
+  <div class="footer-word">{{MARCA}}</div>
+  <div class="footer-disclaimer">
+    {{DISCLAIMERS DA CLASSE: results vary · não avaliado pela FDA (se Classe B) ·
+      consulte profissional de saúde · não substitui tratamento médico}}
+  </div>
+  <div class="footer-copy">
+    <a href="mailto:{{SUPORTE}}">{{SUPORTE}}</a> · <a href="tel:{{TEL}}">{{TEL}}</a>
+  </div>
+</footer>
+
+<!-- ═══ QUIZ MODAL ═══ -->
+<!-- COLE AQUI templates/advertorial/quiz-overlay.html -->
+
+<script>
+/* COLE AQUI templates/advertorial/quiz.js e edite APENAS o topo:
+
+   CHECKOUT_URL  → URL de checkout do pacote alvo
+   IMGDIR        → pasta das imagens
+   PRODUCT_IMG   → imagem do pacote no resultado
+   QS[]          → as 6 perguntas (ver static/advertorial skill para a lógica)
+   LOADERS[]     → 3 telas de processamento
+   O texto do resultado, do índice e da desqualificação
+
+   COMPORTAMENTO (não alterar):
+   · Todo <a class="cta-btn"> da página abre o quiz em vez de navegar
+   · Query params da URL são propagados ao checkout (withParams)
+   · Resposta "None of the above" nos sinais → tela de NÃO QUALIFICADO
+   · ESC / clique fora / X fecham o modal
+*/
+</script>
+</body>
+</html>

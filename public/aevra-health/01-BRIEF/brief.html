@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AEVRA Health — Tesamorelina | Brief-Mestre</title>
+<style>
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #111118;
+  --bg-card: #16161f;
+  --bg-card-hover: #1c1c28;
+  --bg-elevated: #1e1e2a;
+  --border: #2a2a3a;
+  --border-light: #333346;
+  --text-primary: #e8e8f0;
+  --text-secondary: #9898b0;
+  --text-muted: #6a6a82;
+  --accent: #6c5ce7;
+  --accent-light: #a29bfe;
+  --accent-dim: rgba(108, 92, 231, 0.15);
+  --green: #00b894;
+  --green-dim: rgba(0, 184, 148, 0.12);
+  --orange: #fdcb6e;
+  --orange-dim: rgba(253, 203, 110, 0.12);
+  --red: #e17055;
+  --red-dim: rgba(225, 112, 85, 0.12);
+  --blue: #74b9ff;
+  --blue-dim: rgba(116, 185, 255, 0.12);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --sidebar-width: 260px;
+  --transition: 0.2s ease;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header { padding: 24px 20px; border-bottom: 1px solid var(--border); }
+.sidebar-header .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text-primary); }
+.sidebar-header .logo-img { max-width: 180px; height: auto; display: block; }
+.brief-badge { margin-top: 12px; font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; padding: 5px 10px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; text-align: center; }
+.logo-img-mobile { height: 28px; width: auto; }
+.sidebar-nav { flex: 1; padding: 12px 0; overflow-y: auto; }
+.nav-section { padding: 0 12px; margin-bottom: 4px; }
+.nav-section-title { font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); padding: 16px 12px 6px; font-weight: 600; }
+.nav-link { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: var(--radius-sm); color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 500; transition: all var(--transition); cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.nav-link:hover { background: var(--bg-card); color: var(--text-primary); }
+.nav-link.active { background: var(--accent-dim); color: var(--accent-light); }
+.nav-link .nav-icon { font-size: 16px; width: 20px; text-align: center; flex-shrink: 0; }
+.nav-link .nav-badge { margin-left: auto; background: var(--bg-elevated); color: var(--text-muted); font-size: 11px; padding: 1px 7px; border-radius: 10px; font-weight: 600; }
+
+.main { margin-left: var(--sidebar-width); min-height: 100vh; }
+.page-header { padding: 32px 40px 24px; border-bottom: 1px solid var(--border); background: var(--bg-secondary); position: sticky; top: 0; z-index: 50; }
+.page-header h2 { font-size: 24px; font-weight: 700; letter-spacing: -0.03em; }
+.page-header p { color: var(--text-secondary); font-size: 14px; margin-top: 4px; }
+.content { padding: 32px 40px 80px; max-width: 960px; }
+
+.section { display: none; }
+.section.active { display: block; }
+.section-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; }
+.section-subtitle { color: var(--text-secondary); font-size: 14px; margin-bottom: 24px; }
+
+.info-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 16px; }
+.info-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: var(--text-primary); }
+.info-card h4 { font-size: 14px; font-weight: 600; margin-top: 16px; margin-bottom: 8px; color: var(--accent-light); }
+.info-card p { color: var(--text-secondary); font-size: 14px; margin-bottom: 8px; line-height: 1.7; }
+.info-card ul { list-style: none; padding: 0; }
+.info-card ul li { color: var(--text-secondary); font-size: 14px; padding: 6px 0; padding-left: 20px; position: relative; line-height: 1.6; }
+.info-card ul li::before { content: ''; position: absolute; left: 0; top: 13px; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+
+.tag { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; letter-spacing: 0.03em; }
+.tag-green { background: var(--green-dim); color: var(--green); }
+.tag-orange { background: var(--orange-dim); color: var(--orange); }
+.tag-red { background: var(--red-dim); color: var(--red); }
+.tag-blue { background: var(--blue-dim); color: var(--blue); }
+.tag-purple { background: var(--accent-dim); color: var(--accent-light); }
+
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-bottom: 24px; }
+.feature-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px; display: flex; gap: 12px; align-items: flex-start; }
+.feature-item .feat-icon { font-size: 20px; flex-shrink: 0; }
+.feature-item .feat-text { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+.avatar-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 16px; overflow: hidden; }
+.avatar-card-header { padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: background var(--transition); gap: 12px; flex-wrap: wrap; }
+.avatar-card-header:hover { background: var(--bg-card-hover); }
+.avatar-card-header h3 { font-size: 15px; font-weight: 600; }
+.avatar-card-header .avatar-tag { font-size: 11px; padding: 3px 10px; border-radius: 20px; background: var(--accent-dim); color: var(--accent-light); font-weight: 600; }
+.avatar-card-body { padding: 0 24px 20px; display: none; border-top: 1px solid var(--border); }
+.avatar-card-body.open { display: block; padding-top: 16px; }
+.avatar-card-body p { color: var(--text-secondary); font-size: 14px; margin-bottom: 10px; line-height: 1.7; }
+.avatar-card-body strong { color: var(--text-primary); }
+
+.ad-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 20px; overflow: hidden; }
+.ad-card-header { padding: 20px 24px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
+.ad-label { background: var(--green-dim); color: var(--green); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; }
+.ad-card-header h3 { font-size: 16px; font-weight: 700; }
+.ad-preview { flex: 1; min-width: 200px; color: var(--text-muted); font-size: 13px; font-style: italic; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ad-card-body { padding: 24px; max-height: 400px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+.ad-card-body::-webkit-scrollbar { width: 6px; }
+.ad-card-body::-webkit-scrollbar-track { background: transparent; }
+.ad-card-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+.ad-card-body p { color: var(--text-secondary); font-size: 14px; margin-bottom: 12px; line-height: 1.75; }
+.ad-card-footer { padding: 16px 24px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; }
+
+.copy-btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--accent); color: #fff; border: none; border-radius: var(--radius-sm); font-size: 13px; font-weight: 600; font-family: inherit; cursor: pointer; transition: all var(--transition); white-space: nowrap; }
+.copy-btn:hover { background: #7c6ef0; transform: translateY(-1px); }
+.copy-btn.copied { background: var(--green); }
+.copy-btn-bottom { background: var(--bg-elevated); border: 1px solid var(--border-light); color: var(--text-secondary); }
+.copy-btn-bottom:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+.copy-btn-bottom.copied { background: var(--green); color: #fff; border-color: var(--green); }
+
+.angle-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 16px; overflow: hidden; }
+.angle-header { padding: 16px 24px; display: flex; align-items: center; gap: 16px; border-bottom: 1px solid var(--border); }
+.angle-num { width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent), #a29bfe); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; color: #fff; flex-shrink: 0; }
+.angle-header h3 { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+.framework { font-size: 12px; color: var(--text-muted); font-style: italic; }
+.hooks-list { padding: 12px; }
+.hook-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; border-radius: var(--radius-sm); transition: background var(--transition); }
+.hook-item:hover { background: var(--bg-elevated); }
+.hook-item p { flex: 1; color: var(--text-secondary); font-size: 14px; line-height: 1.65; }
+.copy-btn-sm { flex-shrink: 0; width: 32px; height: 32px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all var(--transition); }
+.copy-btn-sm:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+.copy-btn-sm.copied { background: var(--green); color: #fff; border-color: var(--green); }
+
+.mobile-header { display: none; position: fixed; top: 0; left: 0; right: 0; height: 56px; background: var(--bg-secondary); border-bottom: 1px solid var(--border); z-index: 201; padding: 0 16px; align-items: center; gap: 12px; }
+.hamburger { width: 44px; height: 44px; background: none; border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text-primary); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 20px; touch-action: manipulation; -webkit-tap-highlight-color: transparent; z-index: 201; }
+.mobile-header .logo-img-mobile { height: 28px; width: auto; }
+.overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 99; }
+
+@media (max-width: 768px) {
+  .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+  .sidebar.open { transform: translateX(0); }
+  .overlay.open { display: block; }
+  .mobile-header { display: flex; }
+  .main { margin-left: 0; padding-top: 56px; }
+  .page-header { padding: 20px 16px 16px; }
+  .content { padding: 20px 16px 60px; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .ad-card-header { padding: 14px 16px; }
+  .ad-card-body { padding: 16px; }
+  .ad-card-footer { padding: 12px 16px; }
+  .ad-preview { display: none; }
+  .ad-images { padding: 12px 16px 0; }
+  .ad-images img { width: 130px; height: 130px; }
+}
+
+.toast { position: fixed; bottom: 24px; right: 24px; background: var(--green); color: #fff; padding: 12px 20px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 600; z-index: 9999; opacity: 0; transform: translateY(10px); transition: all 0.3s ease; pointer-events: none; }
+.toast.show { opacity: 1; transform: translateY(0); }
+
+.emotion-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 12px; }
+.emotion-card .emotion-quote, .emotion-quote { color: var(--accent-light); font-style: italic; font-size: 14px; line-height: 1.7; border-left: 3px solid var(--accent); padding-left: 16px; margin: 8px 0; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+
+.objection-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 20px; margin-bottom: 10px; }
+.objection-item .q { color: var(--orange); font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+.objection-item .a { color: var(--text-secondary); font-size: 13px; line-height: 1.6; }
+
+/* Estruturas Invisíveis */
+.struct-card .struct-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+.lang-toggle { display: flex; gap: 0; background: var(--bg-primary); border-radius: var(--radius); padding: 3px; border: 1px solid var(--border); box-shadow: inset 0 1px 3px rgba(0,0,0,0.3); }
+.lang-btn { padding: 8px 18px; border: none; border-radius: 10px; font-size: 13px; font-weight: 600; font-family: inherit; cursor: pointer; background: transparent; color: var(--text-muted); transition: all 0.25s ease; touch-action: manipulation; -webkit-tap-highlight-color: transparent; letter-spacing: 0.02em; }
+.lang-btn:hover { color: var(--text-primary); background: rgba(255,255,255,0.04); }
+.lang-btn.active { background: linear-gradient(135deg, var(--accent), #a29bfe); color: #fff; box-shadow: 0 2px 8px rgba(108, 92, 231, 0.4); }
+.lang-content { padding: 4px 0; }
+.struct-label { font-size: 11px; font-weight: 700; color: var(--accent-light); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 14px; margin-bottom: 4px; padding: 3px 8px; background: var(--accent-dim); border-radius: 4px; display: inline-block; }
+.lang-content p { font-size: 13px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 8px; }
+
+/* Alternative solutions */
+.alt-item { display: flex; gap: 12px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border); }
+.alt-item:last-child { border-bottom: none; }
+.alt-item .alt-name { font-weight: 600; color: var(--text-primary); font-size: 14px; }
+.alt-item .alt-why { color: var(--text-secondary); font-size: 13px; margin-top: 2px; }
+
+/* Product hero */
+.product-hero { position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 48px 24px; margin-bottom: 20px; background: linear-gradient(135deg, var(--bg-card) 0%, rgba(108, 92, 231, 0.08) 100%); border: 1px solid var(--border); border-radius: var(--radius); }
+.product-hero::before { content: ''; position: absolute; width: 720px; height: 400px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(214,169,96,0.30) 0%, rgba(214,169,96,0.17) 30%, rgba(214,169,96,0.08) 52%, rgba(214,169,96,0.02) 70%, transparent 82%); filter: blur(34px); pointer-events: none; }
+.product-hero img { position: relative; z-index: 1; max-height: 320px; width: auto; filter: drop-shadow(0 14px 34px rgba(0,0,0,0.55)); transition: transform 0.3s ease; }
+.product-hero img:hover { transform: scale(1.05); }
+@media (max-width: 768px) {
+  .product-hero { padding: 32px 16px; }
+  .product-hero::before { width: 340px; height: 260px; filter: blur(24px); }
+  .product-hero img { max-height: 230px; }
+}
+
+/* Placeholder de imagem (substituir depois) */
+.img-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-height: 200px; width: 100%; border: 2px dashed var(--border-light); border-radius: var(--radius); color: var(--text-muted); font-size: 13px; text-align: center; padding: 24px; background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.015) 10px, rgba(255,255,255,0.015) 20px); }
+.img-placeholder .ph-icon { font-size: 26px; opacity: 0.6; }
+.img-placeholder .ph-hint { font-size: 11px; color: var(--text-muted); opacity: 0.7; }
+
+/* Ad Images */
+.ad-images { display: flex; gap: 8px; padding: 16px 24px 0; overflow-x: auto; scrollbar-width: none; }
+.ad-images::-webkit-scrollbar { display: none; }
+.ad-images img { width: 170px; height: 170px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border); flex-shrink: 0; cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease; }
+.ad-images img:hover { transform: scale(1.05); border-color: var(--accent); }
+.lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 9999; align-items: center; justify-content: center; cursor: pointer; }
+.lightbox.show { display: flex; }
+.lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 8px; }
+
+</style>
+</head>
+<body>
+
+<div class="mobile-header">
+  <button class="hamburger" onclick="toggleSidebar()">☰</button>
+  <span>AEVRA · Tesamorelina</span>
+</div>
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="logo">AEVRA Health</div>
+    <div class="brief-badge">Tesamorelina · Classe D</div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section">
+      <div class="nav-section-title">Overview</div>
+      <a class="nav-link active" onclick="showSection('overview', event)"><span class="nav-icon">📋</span>Visão Geral</a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-section-title">Audience</div>
+      <a class="nav-link" onclick="showSection('target', event)"><span class="nav-icon">🎯</span>Target Audience</a>
+      <a class="nav-link" onclick="showSection('avatars', event)"><span class="nav-icon">👤</span>Avatares <span class="nav-badge">8</span></a>
+      <a class="nav-link" onclick="showSection('psychology', event)"><span class="nav-icon">🧠</span>Won't / Can't Tell</a>
+      <a class="nav-link" onclick="showSection('emotional-code', event)"><span class="nav-icon">💡</span>Código Emocional</a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-section-title">Copywriting</div>
+      <a class="nav-link" onclick="showSection('bigidea', event)"><span class="nav-icon">💎</span>Big Idea & Mecanismo</a>
+      <a class="nav-link" onclick="showSection('ingredients', event)"><span class="nav-icon">🧪</span>Ativo</a>
+      <a class="nav-link" onclick="showSection('forces', event)"><span class="nav-icon">💪</span>Forças Vitais & VOC</a>
+      <a class="nav-link" onclick="showSection('objections', event)"><span class="nav-icon">🛡️</span>Objeções <span class="nav-badge">9</span></a>
+      <a class="nav-link" onclick="showSection('awareness', event)"><span class="nav-icon">📊</span>Estágios de Consciência</a>
+      <a class="nav-link" onclick="showSection('compliance', event)"><span class="nav-icon">⚖️</span>Compliance <span class="nav-badge">D</span></a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-section-title">Creative Assets</div>
+      <a class="nav-link" onclick="showSection('estruturas', event)"><span class="nav-icon">📐</span>Estruturas Invisíveis <span class="nav-badge">⏸</span></a>
+      <a class="nav-link" onclick="showSection('hooks', event)"><span class="nav-icon">🪝</span>Ângulos & Hooks <span class="nav-badge">⏸</span></a>
+      <a class="nav-link" onclick="showSection('longtext', event)"><span class="nav-icon">📝</span>Long Text Ads <span class="nav-badge">⏸</span></a>
+      <a class="nav-link" onclick="showSection('statics', event)"><span class="nav-icon">🖼️</span>Imagens Estáticas <span class="nav-badge">⏸</span></a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-section-title">Performance</div>
+      <a class="nav-link" onclick="showSection('metricas', event)"><span class="nav-icon">📈</span>Métricas de Tráfego</a>
+    </div>
+  </nav>
+</aside>
+
+<main class="main">
+  <div class="page-header">
+    <h2 id="page-title">Visão Geral</h2>
+    <p id="page-subtitle" class="section-subtitle">Produto, evidência e soluções alternativas</p>
+  </div>
+
+  <div class="section active" id="sec-overview">
+
+    <div class="info-card">
+      <h3>Resumo executivo</h3>
+      <p>A <strong>tesamorelina</strong> é um análogo sintético de GHRH de 44 aminoácidos que age no receptor de GHRH dos somatotrofos da hipófise anterior, estimulando a secreção <strong>pulsátil do próprio GH do paciente</strong> — e não a reposição de hormônio exógeno. O efeito descendente é elevação de IGF-1.</p>
+      <p>A tese central é <strong>diagnóstica e de localização</strong>: o problema não é <em>quanto</em> de gordura a pessoa tem, é <strong>onde</strong> ela está. A gordura visceral fica atrás da parede abdominal, envolvendo os órgãos. É firme, não se pinça, não responde a déficit calórico do mesmo jeito que a subcutânea, e é a que carrega o risco cardiometabólico.</p>
+      <p>O diferencial não está em “queimar gordura”, e sim em <strong>duas coisas que o mercado inteiro erra</strong>: o <em>compartimento</em> (visceral, medido por TC nos ensaios) e o <em>modo de ação</em> (restaurar o sinal, não repor o hormônio).</p>
+    </div>
+
+    <div class="info-card" style="border-color:var(--orange)">
+      <h3>⚠️ Uso off-label — leia antes de escrever qualquer linha</h3>
+      <p>A tesamorelina é aprovada pela FDA (<strong>EGRIFTA</strong>, 2010) <strong>apenas</strong> para redução de gordura abdominal excessiva em pacientes com <strong>lipodistrofia associada ao HIV</strong>.</p>
+      <p>Para população não-HIV é <strong>off-label e sem evidência de qualidade de registro</strong>. Isso precisa ser dito na copy, não escondido — e é justamente o que torna o enquadramento “avaliação médica” honesto em vez de decorativo.</p>
+    </div>
+
+    <h3 class="section-title">Características</h3>
+    <div class="feature-grid">
+      <div class="feature-item"><span class="feat-icon">🧪</span><span class="feat-text">Tesamorelina — análogo de GHRH, 44 aa</span></div>
+      <div class="feature-item"><span class="feat-icon">💊</span><span class="feat-text">Vial liofilizado 3ml · 5mg $82.80 · 10mg $165.00</span></div>
+      <div class="feature-item"><span class="feat-icon">💉</span><span class="feat-text">Injeção subcutânea diária</span></div>
+      <div class="feature-item"><span class="feat-icon">🏥</span><span class="feat-text">Telessaúde supervisionada · manipulado 503A</span></div>
+      <div class="feature-item"><span class="feat-icon">🏪</span><span class="feat-text">Olympia Pharmacy · Orlando, FL</span></div>
+      <div class="feature-item"><span class="feat-icon">🔞</span><span class="feat-text">Age gate 21+ já implementado</span></div>
+    </div>
+
+    <h3 class="section-title">Base de evidência <span class="tag tag-orange">citar sempre com a população do estudo</span></h3>
+    <div class="info-card">
+      <ul>
+        <li>Aprovação FDA 2010 — <strong>exclusivamente</strong> lipodistrofia associada ao HIV</li>
+        <li>Redução de VAT de <strong>~15–20% em 6 meses</strong> vs placebo, nos ensaios</li>
+        <li>Meta-análise de 5 ECRs: redução significativa de VAT (<strong>MD = −27,71 cm²</strong>) e de gordura de tronco</li>
+        <li><strong>Aumento significativo de massa magra</strong> observado — direção oposta à dos GLP-1</li>
+        <li>Redução de gordura hepática documentada em pessoas com HIV</li>
+      </ul>
+    </div>
+
+    <h3 class="section-title">TAM</h3>
+    <div class="info-card">
+      <ul>
+        <li>Peptídeos anti-aging: <strong>~$52 bi</strong> ao fim de 2025 <span class="tag tag-orange">⟨verificar⟩</span></li>
+        <li>GLP-1: <strong>&gt;$100 bi</strong> — cria a categoria e o público que depois busca composição corporal</li>
+        <li>Wellness EUA: <strong>$2,3 tri → $3 tri até 2030</strong></li>
+        <li>VAT elevado escala risco de forma dose-dependente (cálculo biliar: 3,2% → 7,4% → 12,1% → 20,6% por quartil)</li>
+      </ul>
+    </div>
+
+    <h3 class="section-title">Soluções alternativas — por que cada uma falha <em>neste compartimento</em></h3>
+    <div class="alt-item"><div class="alt-name">Déficit calórico / dieta</div><div class="alt-why">Reduz preferencialmente subcutânea; a visceral é hormonalmente defendida.</div></div>
+    <div class="alt-item"><div class="alt-name">Abdominais / core</div><div class="alt-why">Não existe redução localizada — e a visceral está <strong>atrás</strong> do músculo.</div></div>
+    <div class="alt-item"><div class="alt-name">Lipoaspiração · $3–8k</div><div class="alt-why"><strong>Fisicamente não alcança.</strong> Só opera à frente da parede abdominal.</div></div>
+    <div class="alt-item"><div class="alt-name">CoolSculpting · $2–4k/área</div><div class="alt-why">Idem — subcutânea apenas.</div></div>
+    <div class="alt-item"><div class="alt-name">GLP-1 · $200–1.300/mês</div><div class="alt-why">Perde peso amplamente; <strong>20–30% do perdido é massa magra</strong>. Não é seletivo pro compartimento.</div></div>
+    <div class="alt-item"><div class="alt-name">HGH exógeno · $1–3k/mês</div><div class="alt-why">Repõe o hormônio e <strong>suprime o eixo próprio</strong>; níveis suprafisiológicos; caro.</div></div>
+    <div class="alt-item"><div class="alt-name">TRT · $100–300/mês</div><div class="alt-why">Eixo diferente; não age via GHRH.</div></div>
+    <div class="alt-item"><div class="alt-name">Suplementos “GH booster”</div><div class="alt-why">Sem sinalização real no receptor de GHRH.</div></div>
+    <div class="alt-item"><div class="alt-name">Não fazer nada</div><div class="alt-why">VAT tende a subir com a idade e a queda de GH. <span class="tag tag-orange">⟨verificar⟩</span></div></div>
+
+    <div class="info-card" style="border-color:var(--green)">
+      <h4>💥 A invalidação mais forte do arsenal</h4>
+      <p>Lipoaspiração e CoolSculpting <strong>não conseguem</strong> tocar gordura visceral — não por serem ruins, mas por <strong>anatomia</strong>. Isso não é opinião de marketing, é fato estrutural. Use com cuidado e sem depreciar procedimento médico alheio.</p>
+    </div>
+
+  </div>
+
+  <div class="section" id="sec-target">
+
+    <div class="info-card">
+      <h3>🎯 Perfil dominante</h3>
+      <p>Adultos <strong>35–60</strong>, com renda de <strong>$70K a $200K+</strong>, que já investem em saúde e já tentaram resolver composição corporal por conta própria. Skew masculino nos avatares 1, 3, 6 e 7; feminino nos 2 e 5; misto nos 4 e 8.</p>
+      <p><strong>Não é público de emagrecimento.</strong> É público de <em>recomposição e declínio percebido</em>. Muitos têm peso normal ou levemente elevado — a queixa é de <strong>formato e localização</strong>, não de número na balança.</p>
+    </div>
+    <div class="two-col">
+      <div class="info-card"><h4>📍 Localização</h4><p>🇺🇸 Estados Unidos. Age gate 21+.</p></div>
+      <div class="info-card"><h4>💰 Renda</h4><p><strong>Primário</strong> $90K–$200K · já gasta com saúde e performance<br><strong>Secundário</strong> $200K+ · otimizador, painel trimestral<br><strong>Sweet spot</strong> $120K–$250K</p></div>
+    </div>
+    <div class="info-card" style="border-color:var(--red)">
+      <h4>⚠️ Diferença estrutural vs Crowned</h4>
+      <p>O registro emocional deste mercado é <strong>declínio e identidade física</strong> — não vergonha e ocultação, que era o registro do Crowned. O medo não é parecer mal; é <strong>o declínio ter começado</strong>. Importar o tom errado mata a peça mesmo com a copy “certa”.</p>
+    </div>
+
+  </div>
+
+  <div class="section" id="sec-avatars">
+
+    <p class="section-subtitle">8 avatares. Nenhum compartilha Gatilho de Conversão. Clique para expandir.</p>
+    <div class="avatar-card">
+      <div class="avatar-card-header" onclick="toggleAvatar(this)">
+        <div><span class="avatar-tag">👔 1. O Executivo de Barriga Dura</span><div class="alt-why">42–55 | homem | $150K+ | treina 3–5x/semana</div></div>
+      </div>
+      <div class="avatar-card-body">
+        <p>Ele não é sedentário. Treina antes do trabalho, monitora macros, faz check-up anual. O braço está bom. As pernas estão boas. Mas existe uma barriga que não é mole — é <strong>dura</strong>. Ela empurra a camisa pra frente mesmo quando ele contrai.</p><p>Já cortou carboidrato, fez jejum, aumentou cardio. O peso até desceu. A barriga continuou lá, firme.</p><p>O que mais incomoda não é a estética — é a <strong>incoerência</strong>. Ele faz tudo certo e o corpo responde em todo lugar menos ali.</p>
+        <div class="two-col">
+          <div class="info-card"><h4>🔍 Sinais comportamentais</h4><ul><li>contrai a barriga em foto sem perceber</li><li>comprou calça um número acima e não contou</li><li>pesquisa “visceral fat” à noite</li><li>já fez ou cogitou InBody/DEXA</li><li>evita camisa social justa</li></ul></div>
+          <div class="info-card"><h4>🎯 Motivadores</h4><ul><li>entender <em>por que</em> o esforço não converte ali</li><li>coerência entre disciplina e resultado</li><li>não virar “o cara de barriga”</li><li>métrica objetiva, não espelho</li></ul></div>
+        </div>
+        <div class="info-card"><h4>⚡ Gatilho de conversão</h4><p>A gordura que você está tentando perder não é a que está te incomodando. A que te incomoda está atrás da parede abdominal — e nada do que você fez chega lá.</p></div>
+        <div class="emotion-card"><h4>🤐 Won't Tell — vive no BODY do ad</h4>
+          <div class="emotion-quote">I contract my stomach in every single photo. Even the ones with my kids. I’ve done it for so long I don’t notice anymore.</div></div>
+        <div class="emotion-card"><h4>🧠 Can't Tell — vive no MECANISMO EMOCIONAL</h4>
+          <p>Ele não tem medo de estar gordo. Tem medo de que essa seja a primeira prova de que o corpo mudou de time — que saiu do modo construir para o modo deteriorar, e que disciplina não manda mais nisso.</p><div class="emotion-quote">→ It’s not that you stopped trying. It’s that your body stopped answering the same way.</div></div>
+        <p><span class="tag tag-blue">Ethos: Autoridade científica + dado</span> <span class="tag tag-red">Pathos: Coerência perdida — nível 4</span> <span class="tag tag-green">Formato: Advertorial investigativo</span></p>
+      </div>
+    </div>
+    <div class="avatar-card">
+      <div class="avatar-card-header" onclick="toggleAvatar(this)">
+        <div><span class="avatar-tag">💉 2. O Sobrevivente do GLP-1</span><div class="alt-why">35–55 | ambos | perdeu 15–30kg | 6–24 meses pós-GLP-1</div></div>
+      </div>
+      <div class="avatar-card-body">
+        <p>Funcionou. Ele perdeu o peso. As roupas serviram. As pessoas comentaram.</p><p>E aí olhou no espelho e não gostou. Ficou menor, mas não ficou melhor. O rosto encovou. Os braços perderam forma. E a barriga continuou proporcionalmente ali — agora num corpo menor, o que a deixou <strong>mais</strong> evidente.</p><p>Descobriu depois, lendo, que boa parte do que perdeu não era só gordura. Ninguém tinha avisado.</p>
+        <div class="two-col">
+          <div class="info-card"><h4>🔍 Sinais comportamentais</h4><ul><li>compara fotos e sente que o “antes” tinha algo melhor</li><li>começou a treinar depois do GLP-1, não antes</li><li>pesquisa “muscle loss Ozempic”</li><li>reduziu ou parou a dose</li><li>teme reganho</li></ul></div>
+          <div class="info-card"><h4>🎯 Motivadores</h4><ul><li>recuperar forma, não perder mais peso</li><li>não desfazer o que conquistou</li><li>entender o que perdeu além de gordura</li><li>algo que trabalhe na direção oposta</li></ul></div>
+        </div>
+        <div class="info-card"><h4>⚡ Gatilho de conversão</h4><p>O GLP-1 te fez menor. A questão agora não é perder mais — é qual compartimento sobrou, e o que aconteceu com a massa magra.</p></div>
+        <div class="emotion-card"><h4>🤐 Won't Tell — vive no BODY do ad</h4>
+          <div class="emotion-quote">I lost forty pounds and I look worse. I can’t say that out loud because everyone keeps congratulating me.</div></div>
+        <div class="emotion-card"><h4>🧠 Can't Tell — vive no MECANISMO EMOCIONAL</h4>
+          <p>Ela obedeceu à única regra que o mundo dá — emagreça — e descobriu que a regra estava incompleta. Não é fracasso, é tração por informação faltando.</p><div class="emotion-quote">→ You followed the instruction. Nobody told you the instruction was incomplete.</div></div>
+        <p><span class="tag tag-blue">Ethos: Comparativo + cética convertida</span> <span class="tag tag-red">Pathos: Traição informacional — nível 4</span> <span class="tag tag-green">Formato: Advertorial comparativo longo</span></p>
+      </div>
+    </div>
+    <div class="avatar-card">
+      <div class="avatar-card-header" onclick="toggleAvatar(this)">
+        <div><span class="avatar-tag">🏅 3. O Ex-Atleta</span><div class="alt-why">38–50 | homem | competiu até os 30 | composição inverteu</div></div>
+      </div>
+      <div class="avatar-card-body">
+        <p>Ele tem fotos. É esse o problema. Foto de um corpo que era dele, com um nome que ainda é o dele. Jogou bola até os 28, levantou peso sério até os 33. Nunca precisou pensar em dieta.</p><p>Aos 42 ainda treina, com menos frequência. E o corpo responde diferente: ganha menos onde quer, acumula mais no meio. A mesma rotina de dez anos atrás agora produz outro resultado.</p><p>Ele não desistiu — o retorno é que mudou.</p>
+        <div class="two-col">
+          <div class="info-card"><h4>🔍 Sinais comportamentais</h4><ul><li>ainda tem a foto antiga salva</li><li>fala do próprio corpo no passado</li><li>compra suplemento com frequência</li><li>testa dietas novas</li><li>evita praia</li></ul></div>
+          <div class="info-card"><h4>🎯 Motivadores</h4><ul><li>entender a mudança fisiológica</li><li>recuperar resposta ao treino</li><li>não aceitar “é a idade” como sentença</li><li>métrica, não achismo</li></ul></div>
+        </div>
+        <div class="info-card"><h4>⚡ Gatilho de conversão</h4><p>Sua hipófise não quebrou. Ela parou de receber o sinal com a mesma frequência. Isso é diferente — e é onde a tesamorelina age.</p></div>
+        <div class="emotion-card"><h4>🤐 Won't Tell — vive no BODY do ad</h4>
+          <div class="emotion-quote">I still describe myself as an athlete. I haven’t been one in twelve years and I know it every time I say it.</div></div>
+        <div class="emotion-card"><h4>🧠 Can't Tell — vive no MECANISMO EMOCIONAL</h4>
+          <p>O corpo era a prova pública de quem ele é. Sem ele, não sabe qual é a evidência da própria identidade — e ninguém percebeu a troca porque ele nunca anunciou.</p><div class="emotion-quote">→ You didn’t lose the shape. You lost the proof.</div></div>
+        <p><span class="tag tag-blue">Ethos: Científico + identificação</span> <span class="tag tag-red">Pathos: Identidade sem prova — nível 4</span> <span class="tag tag-green">Formato: Advertorial de reframe fisiológico</span></p>
+      </div>
+    </div>
+    <div class="avatar-card">
+      <div class="avatar-card-header" onclick="toggleAvatar(this)">
+        <div><span class="avatar-tag">📄 4. O do Exame Alterado</span><div class="alt-why">40–60 | ambos | fez DEXA, TC ou InBody | viu um número</div></div>
+      </div>
+      <div class="avatar-card-body">
+        <p>Fez o exame por outro motivo. Um check-up, uma dor, um pacote de longevidade comprado por curiosidade. E veio um número que ninguém explicou: gordura visceral elevada. Ou esteatose hepática.</p><p>O médico disse “perca peso” e passou pro próximo assunto. Ele saiu com um dado e sem um plano.</p><p>Desde então pesquisa à noite, e cada artigo aumenta a preocupação sem apontar direção.</p>
+        <div class="two-col">
+          <div class="info-card"><h4>🔍 Sinais comportamentais</h4><ul><li>guardou o PDF do exame</li><li>sabe o próprio número de VAT</li><li>pesquisou “visceral fat dangerous”</li><li>marcou repetir o exame</li><li>mudou algo na dieta por conta</li></ul></div>
+          <div class="info-card"><h4>🎯 Motivadores</h4><ul><li>um plano em vez de um susto</li><li>alguém que trate o número, não “peso” genérico</li><li>acompanhamento com medição</li><li>reduzir risco, não caber na calça</li></ul></div>
+        </div>
+        <div class="info-card"><h4>⚡ Gatilho de conversão</h4><p>O número que te assustou tem um compartimento específico — e existe protocolo que foi medido nesse compartimento, por tomografia, não por balança.</p></div>
+        <div class="emotion-card"><h4>🤐 Won't Tell — vive no BODY do ad</h4>
+          <div class="emotion-quote">I know my visceral fat number by heart and I’ve never said it to anyone.</div></div>
+        <div class="emotion-card"><h4>🧠 Can't Tell — vive no MECANISMO EMOCIONAL</h4>
+          <p>O exame transformou um incômodo estético em fato clínico. Ele não teme a barriga — teme que o número seja o primeiro parágrafo de uma história que já viu acontecer com o pai.</p><div class="emotion-quote">→ A number turned a worry into a fact. What you want now isn’t reassurance — it’s a plan.</div></div>
+        <p><span class="tag tag-blue">Ethos: Institucional / médico</span> <span class="tag tag-red">Pathos: Medo herdado — nível 3</span> <span class="tag tag-green">Formato: Conservador + FAQ · nunca hook de cura</span></p>
+      </div>
+    </div>
+    <div class="avatar-card">
+      <div class="avatar-card-header" onclick="toggleAvatar(this)">
+        <div><span class="avatar-tag">🌸 5. A Redistribuição dos 45+</span><div class="alt-why">45–60 | mulher | perimenopausa | mudou o formato, não o peso</div></div>
+      </div>
+      <div class="avatar-card-body">
+        <p>Ela não mudou nada — essa é a frase que repete. Come igual, se move igual. Mas depois dos 45 o corpo redistribuiu. A balança quase não mexeu. O <strong>formato</strong> mexeu.</p><p>A cintura que sempre existiu deixou de existir. As calças fecham mas ficam diferentes. Ela descreve como “meu corpo virou outro corpo com o mesmo peso”.</p><p>O médico disse “é hormonal, é a idade”. Como se fosse sentença e não diagnóstico.</p>
+        <div class="two-col">
+          <div class="info-card"><h4>🔍 Sinais comportamentais</h4><ul><li>o peso mudou pouco, o manequim mudou</li><li>guardou roupas que fecham mas não caem bem</li><li>pesquisa “menopause belly”</li><li>evita foto de perfil</li><li>usa peça mais solta na cintura</li></ul></div>
+          <div class="info-card"><h4>🎯 Motivadores</h4><ul><li>explicação que não seja “é a idade”</li><li>reconhecimento de que peso não é a métrica certa</li><li>algo que trate redistribuição, não emagrecimento</li></ul></div>
+        </div>
+        <div class="info-card"><h4>⚡ Gatilho de conversão</h4><p>Seu peso não mudou porque o problema nunca foi peso. Foi realocação — e realocação tem compartimento, mecanismo e medida próprios.</p></div>
+        <div class="emotion-card"><h4>🤐 Won't Tell — vive no BODY do ad</h4>
+          <div class="emotion-quote">The scale says I’m the same weight I was at forty. Nothing about my body is the same. I can’t explain that without sounding vain.</div></div>
+        <div class="emotion-card"><h4>🧠 Can't Tell — vive no MECANISMO EMOCIONAL</h4>
+          <p>Ela sente que está sendo trocada por outra versão de si sem ter sido consultada — e que “é hormonal” é o jeito educado de dizerem que ela não tem recurso.</p><div class="emotion-quote">→ You didn’t gain weight. You were reorganized — and nobody offered you a say.</div></div>
+        <p><span class="tag tag-blue">Ethos: Médico com empatia</span> <span class="tag tag-red">Pathos: Perda de agência — nível 4</span> <span class="tag tag-green">Formato: Advertorial estilo notícia de saúde</span></p>
+      </div>
+    </div>
+    <div class="avatar-card">
+      <div class="avatar-card-header" onclick="toggleAvatar(this)">
+        <div><span class="avatar-tag">🧬 6. O Otimizador</span><div class="alt-why">33–48 | $200K+ | painel de sangue trimestral | Most Aware</div></div>
+      </div>
+      <div class="avatar-card-body">
+        <p>Ele já sabe o que é IGF-1. Tem painel de sangue trimestral, anel de sono, talvez já esteja em TRT. Lê estudo, não depoimento. Conhece tesamorelina pelo nome antes de qualquer anúncio.</p><p>O que ele quer não é ser convencido — é ser <strong>abastecido</strong>: dose, protocolo, fonte, farmácia, supervisão. Compara fornecedores e detecta marketing vago em três segundos.</p>
+        <div class="two-col">
+          <div class="info-card"><h4>🔍 Sinais comportamentais</h4><ul><li>sabe o próprio IGF-1</li><li>já comprou peptídeo antes</li><li>lê PubMed</li><li>compara farmácias de manipulação</li><li>pergunta sobre pureza e ensaio</li></ul></div>
+          <div class="info-card"><h4>🎯 Motivadores</h4><ul><li>protocolo correto e supervisionado</li><li>fonte confiável e rastreável</li><li>dado mensurável</li><li>não ser tratado como leigo</li></ul></div>
+        </div>
+        <div class="info-card"><h4>⚡ Gatilho de conversão</h4><p>Análogo de GHRH, não GH exógeno. O eixo de feedback continua seu — é essa a diferença que ninguém explica direito.</p></div>
+        <div class="emotion-card"><h4>🤐 Won't Tell — vive no BODY do ad</h4>
+          <div class="emotion-quote">I’ve bought peptides from places I would never tell my doctor about. I’d rather do this properly, but nobody was offering properly.</div></div>
+        <div class="emotion-card"><h4>🧠 Can't Tell — vive no MECANISMO EMOCIONAL</h4>
+          <p>Ele trata otimização como controle, e o corpo é a última variável que ainda não dominou. Cada protocolo novo tenta provar que declínio é opcional se você for inteligente o bastante.</p><div class="emotion-quote">→ You’re not optimizing. You’re negotiating with a deadline nobody else admits exists.</div></div>
+        <p><span class="tag tag-blue">Ethos: Científico puro + rastreabilidade</span> <span class="tag tag-red">Pathos: Controle sobre declínio — nível 4</span> <span class="tag tag-green">Formato: Ficha técnica · não eduque</span></p>
+      </div>
+    </div>
+    <div class="avatar-card">
+      <div class="avatar-card-header" onclick="toggleAvatar(this)">
+        <div><span class="avatar-tag">⚠️ 7. O que Recuou do HGH</span><div class="alt-why">40–58 | homem | usou ou cotou HGH | recuou</div></div>
+      </div>
+      <div class="avatar-card-body">
+        <p>Ele chegou perto. Pesquisou clínica, pegou orçamento, talvez tenha usado alguns meses. E parou — pelo custo de quatro dígitos por mês, pelo inchaço e formigamento, ou pelo que leu sobre suprimir a produção própria.</p><p>Ficou com a sensação de que existe algo ali, mas que o caminho oferecido cobrava caro demais em dinheiro e em autonomia biológica.</p>
+        <div class="two-col">
+          <div class="info-card"><h4>🔍 Sinais comportamentais</h4><ul><li>tem orçamento de clínica salvo</li><li>pesquisou “HGH suppression”</li><li>conhece alguém que usa</li><li>desconfia de clínica anti-aging agressiva</li></ul></div>
+          <div class="info-card"><h4>🎯 Motivadores</h4><ul><li>o benefício sem a supressão do eixo</li><li>custo defensável</li><li>poder parar sem colapso</li><li>supervisão real, não venda</li></ul></div>
+        </div>
+        <div class="info-card"><h4>⚡ Gatilho de conversão</h4><p>HGH substitui o hormônio. GHRH pede por ele. Num, seu eixo desliga; no outro, ele continua sendo seu — inclusive o freio.</p></div>
+        <div class="emotion-card"><h4>🤐 Won't Tell — vive no BODY do ad</h4>
+          <div class="emotion-quote">I got the quote, sat in my car, and didn’t go back in. Not because of the money. Because it felt like a one-way door.</div></div>
+        <div class="emotion-card"><h4>🧠 Can't Tell — vive no MECANISMO EMOCIONAL</h4>
+          <p>Ele quer intervir sem se entregar. Aceitar HGH seria admitir que o corpo não funciona mais sozinho — e prefere declinar devagar a assinar essa confissão.</p><div class="emotion-quote">→ You didn’t say no to the price. You said no to the surrender.</div></div>
+        <p><span class="tag tag-blue">Ethos: Comparativo mecanicista</span> <span class="tag tag-red">Pathos: Autonomia biológica — nível 4</span> <span class="tag tag-green">Formato: Advertorial comparativo · mecanismo, nunca promessa igual</span></p>
+      </div>
+    </div>
+    <div class="avatar-card">
+      <div class="avatar-card-header" onclick="toggleAvatar(this)">
+        <div><span class="avatar-tag">🩺 8. O Fígado Gorduroso</span><div class="alt-why">38–58 | ambos | esteatose no ultrassom | “perca peso”</div></div>
+      </div>
+      <div class="avatar-card-body">
+        <p>O ultrassom apareceu com “esteatose hepática leve a moderada”. Ele nem bebe — ou bebe pouco, o que tornou tudo mais confuso. Perguntou o que fazer e ouviu: perca peso, se exercite, repita em um ano.</p><p>Ele não tem sintoma. É esse o incômodo: existe algo acontecendo por dentro que ele não sente e não sabe medir, e a única instrução que recebeu é a mesma que já não funcionava.</p>
+        <div class="two-col">
+          <div class="info-card"><h4>🔍 Sinais comportamentais</h4><ul><li>guardou o laudo</li><li>pesquisa “fatty liver reverse”</li><li>cortou álcool e frutose</li><li>refez exame por conta</li><li>pergunta em fórum</li></ul></div>
+          <div class="info-card"><h4>🎯 Motivadores</h4><ul><li>algo direcionado ao fígado, não conselho genérico</li><li>acompanhamento com medição</li><li>agir antes de progredir</li></ul></div>
+        </div>
+        <div class="info-card"><h4>⚡ Gatilho de conversão</h4><p>Gordura hepática e gordura visceral são a mesma história em dois endereços. Os ensaios mediram os dois.</p></div>
+        <div class="emotion-card"><h4>🤐 Won't Tell — vive no BODY do ad</h4>
+          <div class="emotion-quote">I have a condition in my liver and the only advice I got was the same advice that already wasn’t working.</div></div>
+        <div class="emotion-card"><h4>🧠 Can't Tell — vive no MECANISMO EMOCIONAL</h4>
+          <p>Ele descobriu que o corpo pode se deteriorar em silêncio, sem sintoma e sem aviso — e agora não confia mais na ausência de sintomas como sinal de saúde.</p><div class="emotion-quote">→ The scariest part wasn’t the diagnosis. It was learning your body can go wrong quietly.</div></div>
+        <p><span class="tag tag-blue">Ethos: Institucional / médico</span> <span class="tag tag-red">Pathos: Desconfiança do próprio corpo — nível 3</span> <span class="tag tag-green">Formato: Conservador + FAQ · nunca prometer reversão</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="sec-psychology">
+
+    <div class="info-card">
+      <p>O modelo tem duas camadas. <strong>Won't Tell</strong> é o que ele só diz anônimo, à meia-noite, num fórum — vive no <strong>BODY</strong> do ad e derruba o ceticismo. <strong>Can't Tell</strong> é o que ele nem sabe que sente — vive no <strong>MECANISMO EMOCIONAL</strong> e é o que converte.</p>
+    </div>
+
+    <h3 class="section-title">Won't Tell — o que ele esconde</h3>
+    <div class="emotion-quote">I contract my stomach in every single photo. Even the ones with my kids.</div>
+    <div class="emotion-quote">I lost forty pounds and I look worse. I can’t say that out loud.</div>
+    <div class="emotion-quote">I still describe myself as an athlete. I haven’t been one in twelve years.</div>
+    <div class="emotion-quote">I know my visceral fat number by heart and I’ve never said it to anyone.</div>
+    <div class="emotion-quote">The scale says I’m the same weight I was at forty. Nothing about my body is the same.</div>
+    <div class="emotion-quote">I’ve bought peptides from places I’d never tell my doctor about.</div>
+    <div class="emotion-quote">I got the quote, sat in my car, and didn’t go back in.</div>
+    <div class="emotion-quote">I bought the next size up and didn’t tell anyone. Not even my wife.</div>
+    <div class="emotion-quote">My belly is hard. Everyone talks about pinching fat. Mine doesn’t pinch.</div>
+
+    <h3 class="section-title">Can't Tell — o que ele não sabe que sente</h3>
+    <div class="emotion-card"><h4>1. A troca de time</h4><p>Não é medo de engordar. É a suspeita de que o corpo saiu do modo construir e entrou no modo deteriorar — e de que disciplina deixou de ser variável de controle.</p><div class="emotion-quote">→ It’s not that you stopped trying. It’s that your body stopped answering the same way.</div></div>
+    <div class="emotion-card"><h4>2. A prova que sumiu</h4><p>O corpo era a evidência pública de quem ele é. Sem ela, a identidade continua sendo afirmada sem lastro — e ele sabe disso cada vez que se descreve.</p><div class="emotion-quote">→ You didn’t lose the shape. You lost the proof.</div></div>
+    <div class="emotion-card"><h4>3. A instrução incompleta</h4><p>Ela obedeceu à única regra que o mundo oferece — emagreça — e descobriu que faltava metade. Não é fracasso, é traição por informação omitida.</p><div class="emotion-quote">→ You followed the instruction. Nobody told you it was incomplete.</div></div>
+    <div class="emotion-card"><h4>4. A reorganização sem consentimento</h4><p>Depois dos 45, o corpo foi reorganizado sem consulta. “É hormonal” é o jeito educado de comunicar que não há recurso.</p><div class="emotion-quote">→ You didn’t gain weight. You were reorganized — and nobody offered you a say.</div></div>
+    <div class="emotion-card"><h4>5. O silêncio do corpo</h4><p>Descobrir que algo pode estar errado sem sintoma destrói o único sistema de alerta em que ele confiava: sentir-se bem.</p><div class="emotion-quote">→ The scariest part isn’t the diagnosis. It’s learning your body can go wrong quietly.</div></div>
+
+    <h3 class="section-title">📶 Escada de Profundidade Emocional</h3>
+    <div class="info-card">
+      <p><span class="tag">Nível 1 — Superfície</span> “Cansado de barriga?” → genérico, ignorado.</p>
+      <p><span class="tag tag-blue">Nível 2 — Específica</span> “Aquela barriga que não amolece por mais que você treine.”</p>
+      <p><span class="tag tag-purple">Nível 3 — Identitária</span> “Você ainda se descreve como atleta.”</p>
+      <p><span class="tag tag-red">Nível 4 — Não-verbalizável</span> “Não é que você parou de tentar. É que o corpo parou de responder do mesmo jeito.”</p>
+      <p class="alt-why"><strong>Meta de produção:</strong> mínimo 40% de cada lote de hooks em nível 3–4.</p>
+    </div>
+
+  </div>
+
+  <div class="section" id="sec-emotional-code">
+
+    <p class="section-subtitle">Mesmo ativo, mesmo mecanismo — 8 códigos emocionais diferentes. Trocar o Ethos ou o Formato entre personas mata o ad mesmo com a copy certa.</p>
+    <div class="info-card"><h4>👔 1. O Executivo de Barriga Dura</h4><p><span class="tag tag-blue">Ethos: Autoridade científica + dado</span> <span class="tag tag-red">Pathos: Coerência perdida — nível 4</span> <span class="tag tag-green">Formato: Advertorial investigativo</span></p></div>
+    <div class="info-card"><h4>💉 2. O Sobrevivente do GLP-1</h4><p><span class="tag tag-blue">Ethos: Comparativo + cética convertida</span> <span class="tag tag-red">Pathos: Traição informacional — nível 4</span> <span class="tag tag-green">Formato: Advertorial comparativo longo</span></p></div>
+    <div class="info-card"><h4>🏅 3. O Ex-Atleta</h4><p><span class="tag tag-blue">Ethos: Científico + identificação</span> <span class="tag tag-red">Pathos: Identidade sem prova — nível 4</span> <span class="tag tag-green">Formato: Advertorial de reframe fisiológico</span></p></div>
+    <div class="info-card"><h4>📄 4. O do Exame Alterado</h4><p><span class="tag tag-blue">Ethos: Institucional / médico</span> <span class="tag tag-red">Pathos: Medo herdado — nível 3</span> <span class="tag tag-green">Formato: Conservador + FAQ · nunca hook de cura</span></p></div>
+    <div class="info-card"><h4>🌸 5. A Redistribuição dos 45+</h4><p><span class="tag tag-blue">Ethos: Médico com empatia</span> <span class="tag tag-red">Pathos: Perda de agência — nível 4</span> <span class="tag tag-green">Formato: Advertorial estilo notícia de saúde</span></p></div>
+    <div class="info-card"><h4>🧬 6. O Otimizador</h4><p><span class="tag tag-blue">Ethos: Científico puro + rastreabilidade</span> <span class="tag tag-red">Pathos: Controle sobre declínio — nível 4</span> <span class="tag tag-green">Formato: Ficha técnica · não eduque</span></p></div>
+    <div class="info-card"><h4>⚠️ 7. O que Recuou do HGH</h4><p><span class="tag tag-blue">Ethos: Comparativo mecanicista</span> <span class="tag tag-red">Pathos: Autonomia biológica — nível 4</span> <span class="tag tag-green">Formato: Advertorial comparativo · mecanismo, nunca promessa igual</span></p></div>
+    <div class="info-card"><h4>🩺 8. O Fígado Gorduroso</h4><p><span class="tag tag-blue">Ethos: Institucional / médico</span> <span class="tag tag-red">Pathos: Desconfiança do próprio corpo — nível 3</span> <span class="tag tag-green">Formato: Conservador + FAQ · nunca prometer reversão</span></p></div>
+    <div class="info-card" style="border-color:var(--red)">
+      <h4>⚠️ Erros fatais</h4>
+      <ul>
+        <li><strong>O Otimizador</strong> rejeita qualquer coisa que tente educá-lo — ele é Most Aware.</li>
+        <li><strong>O do Exame Alterado</strong> e <strong>O Fígado Gorduroso</strong> precisam de disclaimer e compatibilidade — <strong>nunca</strong> hook de cura.</li>
+        <li><strong>O Sobrevivente do GLP-1</strong>: jamais criticar, desaconselhar ou sugerir interrupção de GLP-1. É contexto do problema, nunca alvo.</li>
+        <li><strong>O que Recuou do HGH</strong> precisa de mecanismo diferente, não de promessa igual.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="section" id="sec-bigidea">
+
+    <div class="info-card" style="border-color:var(--accent)">
+      <h3>💡 Big Idea</h3>
+      <p style="font-size:1.15em"><strong>Você não tem um problema de peso. Você tem um problema de endereço.</strong></p>
+      <p>A gordura que está te envelhecendo é a que você <strong>não consegue pinçar</strong> — ela fica atrás da parede abdominal, em volta dos órgãos, onde dieta, abdominal, lipo e criolipólise não chegam. A tesamorelina não repõe hormônio: ela <strong>restaura o sinal</strong> que a hipófise deixou de receber.</p>
+      <p class="alt-why">Primeira metade devolve esperança e <strong>absolve</strong> — o esforço não foi insuficiente, foi endereçado ao lugar errado. Segunda metade cria o mecanismo e já separa de HGH.</p>
+      <p class="alt-why"><strong>Teste:</strong> tire “tesamorelina” e “Aevra” — a frase continua interessante. ✅ É Big Idea.</p>
+    </div>
+
+    <h3 class="section-title">🧠 One Belief</h3>
+    <div class="info-card"><ol>
+      <li><strong>Compartimento importa mais que quantidade</strong> — visceral ≠ subcutânea, em risco e em resposta</li>
+      <li><strong>O que ele tentou nunca alcançou esse compartimento</strong> — anatomia, não falta de esforço</li>
+      <li><strong>A hipófise dele não quebrou</strong> — parou de receber o sinal com a mesma frequência</li>
+      <li><strong>O resultado depende de supervisão, medição e consistência</strong> — não de dose</li>
+    </ol></div>
+
+    <h3 class="section-title">🗡️ MUP — “the fat behind the wall”</h3>
+    <div class="info-card">
+      <p>PT-BR: <em>“a gordura atrás da parede”</em>. Evite “gordura visceral” como MUP — é o termo técnico, útil para SEO e para o Otimizador, mas <strong>não é um vilão batizado</strong>.</p>
+      <table>
+        <tr><th>Teste</th><th>Resultado</th></tr>
+        <tr><td><strong>Nome</strong> — repetível de cor?</td><td>✅ visual, anatômico, três palavras</td></tr>
+        <tr><td><strong>Absolvição</strong> — tira a culpa?</td><td>✅ “não foi falta de disciplina, foi endereço errado”</td></tr>
+        <tr><td><strong>Invalidação</strong> — explica todas as falhas?</td><td>✅ dieta, abdominal, lipo e crio operam à <strong>frente</strong> da parede</td></tr>
+      </table>
+    </div>
+
+    <h3 class="section-title">⛓️ Cadeia causal</h3>
+    <div class="info-card"><ol>
+      <li>Queda progressiva do eixo GH/IGF-1 com a idade</li>
+      <li>Somada a cortisol crônico, sono ruim e resistência à insulina</li>
+      <li>O corpo passa a preferir estocar no compartimento visceral</li>
+      <li>A gordura se acumula <strong>atrás</strong> da parede abdominal, em volta dos órgãos</li>
+      <li>A balança quase não registra — o formato muda, o peso não</li>
+      <li>Ele ataca o que vê: dieta, cardio, abdominal, procedimento estético</li>
+      <li>Nada disso alcança o compartimento; o retorno não aparece</li>
+      <li>“Faço tudo certo e não funciona” vira prova de que o corpo virou adversário</li>
+      <li><strong>A perda deixa de ser de gordura e passa a ser de coerência e identidade</strong></li>
+    </ol></div>
+
+    <h3 class="section-title">⚙️ Mecanismo do problema — cada vilão fecha uma saída</h3>
+    <table>
+      <tr><th>Vilão</th><th>O que faz</th><th>🎯 Saída que fecha</th></tr>
+      <tr><td><strong>Queda do eixo GH/IGF-1</strong></td><td>Menos pulso de GH com a idade</td><td>“É só me esforçar mais”</td></tr>
+      <tr style="background:var(--green-dim)"><td><strong>Localização atrás da parede</strong></td><td>Compartimento inacessível</td><td><strong>Mata a categoria estética inteira</strong></td></tr>
+      <tr><td><strong>Cortisol e sono</strong></td><td>Direciona estoque pro centro</td><td>“Minha dieta é limpa”</td></tr>
+      <tr><td><strong>A balança como métrica errada</strong></td><td>Peso estável mascara realocação</td><td>“Mas meu peso está bom”</td></tr>
+      <tr><td><strong>Catabolismo amplo do GLP-1</strong></td><td>20–30% do perdido é massa magra</td><td>“Faço Ozempic e resolvo”</td></tr>
+      <tr><td><strong>Supressão do eixo pelo HGH</strong></td><td>Repõe e desliga a produção própria</td><td>“Tomo GH e pronto”</td></tr>
+      <tr><td><strong>Ausência de medição</strong></td><td>Sem TC/DEXA não há como saber</td><td>Justifica supervisão e duração</td></tr>
+    </table>
+
+    <h3 class="section-title">✅ Mecanismo da solução — Physician-Supervised Visceral Protocol</h3>
+    <div class="info-card" style="border-color:var(--orange)">
+      <h4>⚠️ Decisão deliberada de estrutura</h4>
+      <p>Aqui <strong>não</strong> se usa a “Solução 2.0” do Crowned (batizar um ritual de consumo em vez do produto). Com Classe D, obscurecer o que está sendo vendido <strong>aumenta</strong> o risco em vez de reduzir. O protocolo é nomeado como <strong>clínico</strong>, não como ritual.</p>
+    </div>
+    <div class="info-card"><h4>Etapa 1 — Restaurar o sinal</h4><p>Tesamorelina é análogo de GHRH: age no receptor dos somatotrofos e pede à hipófise que libere <strong>o GH dela mesma</strong>, em padrão pulsátil. Não é hormônio exógeno. O eixo de feedback — inclusive o freio — continua do paciente.</p></div>
+    <div class="info-card"><h4>Etapa 2 — Endereçar o compartimento profundo</h4><p>Os ensaios mediram <strong>VAT por tomografia</strong>, não peso em balança. Redução de ~15–20% em 6 meses vs placebo; MD = −27,71 cm² em meta-análise de 5 ECRs. <span class="tag tag-orange">população: lipodistrofia associada ao HIV</span></p></div>
+    <div class="info-card"><h4>Etapa 3 — Preservar o que foi construído</h4><p>Nos mesmos ensaios observou-se <strong>aumento significativo de massa magra</strong> — direção oposta à perda de 20–30% de massa magra associada ao emagrecimento por GLP-1.</p></div>
+    <div class="info-card" style="border-color:var(--accent)"><h4>💡 Reason why</h4><p>O argumento não é “peptídeo queima gordura”. É <strong><em>o único mecanismo que age pedindo em vez de repondo, e que foi medido no compartimento que os outros não alcançam.</em></strong> A diferenciação está no <strong>modo de ação</strong> e no <strong>endereço</strong> — nunca na intensidade da promessa.</p></div>
+
+    <h3 class="section-title">🪜 Hierarquia de revelação</h3>
+    <table>
+      <tr><th>#</th><th>Camada</th><th>Revela</th><th>Saída que fecha</th></tr>
+      <tr><td>1</td><td><strong>Diagnóstica</strong></td><td>Barriga firme que não se pinça ≠ gordura comum</td><td>“É só barriga”</td></tr>
+      <tr><td>2</td><td><strong>Anatômica</strong></td><td>Ela está atrás da parede, em volta dos órgãos</td><td>“Dá pra tirar”</td></tr>
+      <tr style="background:var(--accent-dim)"><td>3</td><td><strong>De alcance ⭐</strong></td><td>Tudo que você tentou opera à frente da parede</td><td><strong>“Já tentei de tudo”</strong></td></tr>
+      <tr><td>4</td><td><strong>De sinal</strong> (A DESCOBERTA)</td><td>GHRH pede o GH; não repõe. O eixo continua seu</td><td>“Isso é igual a HGH”</td></tr>
+      <tr><td>5</td><td><strong>De medição</strong></td><td>O desfecho é VAT por imagem, não peso</td><td>“A balança não mexeu”</td></tr>
+      <tr><td>6</td><td><strong>Emocional</strong></td><td>O que volta não é a barriga — é a coerência</td><td>“É vaidade”</td></tr>
+    </table>
+    <div class="info-card"><p>A <strong>camada 3</strong> é o coração da peça, exatamente como no Crowned. Lá era <em>delivery</em> (o que é enxaguado não fica na raiz). Aqui é <em>alcance</em> (o que opera à frente da parede não toca o que está atrás dela).</p></div>
+
+  </div>
+
+  <div class="section" id="sec-ingredients">
+
+    <div class="info-card">
+      <h3>🏆 Tesamorelina</h3>
+      <p><strong>Papel narrativo:</strong> Restaurador do sinal — análogo de GHRH, não GH exógeno.</p>
+      <p><strong>Claim permitido (Classe D):</strong> “Um provedor licenciado avaliará se é clinicamente apropriado.” Citar ensaios <strong>sempre com a população estudada</strong>.</p>
+    </div>
+    <div class="info-card" style="border-color:var(--red)">
+      <h4>❌ Nunca escrever</h4>
+      <p>“queima gordura visceral” · “derrete barriga” · “reverte o envelhecimento” · “substitui HGH com segurança” · qualquer promessa de perda em kg, cm ou prazo.</p>
+    </div>
+    <div class="info-card">
+      <h4>🔬 Como funciona — versão para copy</h4>
+      <p>Análogo sintético de GHRH com 44 aminoácidos → liga no receptor de GHRH dos somatotrofos da hipófise anterior → via cAMP/PKA → liberação de GH em padrão <strong>pulsátil fisiológico</strong> → elevação descendente de IGF-1.</p>
+      <p class="alt-why">A palavra que carrega a diferenciação inteira é <strong>pulsátil</strong>. HGH exógeno produz nível contínuo e suprafisiológico e suprime o eixo. GHRH preserva o ritmo e o freio.</p>
+    </div>
+
+  </div>
+
+  <div class="section" id="sec-forces">
+
+    <h3 class="section-title">💪 7 Forças Vitais</h3>
+    <div class="info-card">
+      <p><span class="tag tag-red">PRIMÁRIA</span> <strong>Propósito e Identidade</strong> — o corpo como prova de quem ele é</p>
+      <p><span class="tag tag-red">PRIMÁRIA</span> <strong>Autoconfiança</strong> — coerência entre esforço e resultado</p>
+      <p><span class="tag tag-red">PRIMÁRIA</span> <strong>Longevidade e Sobrevivência</strong> — aqui é primária, não moderada</p>
+      <p><span class="tag tag-orange">SECUNDÁRIA</span> Energia · Domínio Emocional · Beleza e Masculinidade</p>
+      <p><span class="tag">MODERADA</span> Foco e Clareza Mental</p>
+      <p class="alt-why"><strong>Diferença vs Crowned:</strong> lá a força dominante era Beleza/Feminilidade. Aqui é <strong>Longevidade + Identidade</strong>. O medo não é parecer mal — é o declínio ter começado.</p>
+    </div>
+
+    <h3 class="section-title">💖 Benefícios emocionais profundos</h3>
+    <div class="info-card">
+      <p><strong>Coerência</strong> — “faço tudo certo e não converte” → <em>Effort that answers again.</em></p>
+      <p><strong>Absolvição</strong> — não foi preguiça, foi endereço → <em>You weren’t failing. You were aiming at the wrong fat.</em></p>
+      <p><strong>Agência</strong> — declínio como variável → <em>Age sets the trend. It doesn’t set the terms.</em></p>
+      <p><strong>Autonomia biológica</strong> — pedir em vez de repor → <em>Your axis stays yours.</em></p>
+      <p><strong>Medida</strong> — sair do achismo → <em>Stop arguing with a scale that was never measuring this.</em></p>
+      <p><strong>Prova</strong> — o lastro da identidade física → <em>Get the evidence back.</em></p>
+    </div>
+
+    <h3 class="section-title">🗣️ VOC — Voz do Cliente</h3>
+    <div class="info-card" style="border-color:var(--orange)">
+      <h4>⚠️ ⟨verificar⟩ — verbatims ainda não coletados</h4>
+      <p>Os temas abaixo foram <strong>inferidos da pesquisa de mercado</strong>, não são verbatims reais. Antes de escrever hooks, rodar coleta em r/PeptideGuide, r/Testosterone, r/loseit, r/Ozempic, r/Biohackers, fóruns de longevidade e reviews de clínicas concorrentes.</p>
+      <p class="alt-why">Um hook construído sobre VOC inferido soa a agência. Sobre VOC real, soa a pessoa. Esta é a maior lacuna do brief.</p>
+    </div>
+    <table>
+      <tr><th>Tema</th><th>Direção esperada</th></tr>
+      <tr><td><em>“A balança mente”</em></td><td>Peso estável, formato diferente</td></tr>
+      <tr><td><em>“Faço tudo certo”</em></td><td>Disciplina sem retorno</td></tr>
+      <tr><td><em>“Emagreci e piorei”</em></td><td>Pós-GLP-1, aparência deflacionada</td></tr>
+      <tr><td><em>“Barriga dura”</em></td><td>Não se pinça — o sinal diagnóstico</td></tr>
+      <tr><td><em>“Meu médico só disse perca peso”</em></td><td>Dado sem plano</td></tr>
+      <tr><td><em>“Não quero depender”</em></td><td>Medo de supressão do eixo</td></tr>
+    </table>
+
+  </div>
+
+  <div class="section" id="sec-objections">
+    <div class="objection-item"><h4>“Isso é HGH?”</h4><p>Não. HGH repõe o hormônio; tesamorelina é análogo de GHRH e pede que a <strong>sua</strong> hipófise libere o próprio GH, em padrão pulsátil. O eixo de feedback continua seu.</p></div>
+    <div class="objection-item"><h4>“Já tentei de tudo e nada tira essa barriga.”</h4><p>Provavelmente tudo o que tentou opera <strong>à frente</strong> da parede abdominal. Gordura visceral fica atrás dela, em volta dos órgãos. Não é questão de intensidade — é de alcance.</p></div>
+    <div class="objection-item"><h4>“Minha balança nem se mexe.”</h4><p>É esperado. Dá para reduzir gordura visceral com pouca variação de peso — por isso o desfecho dos ensaios foi medido <strong>por imagem</strong>, não em balança.</p></div>
+    <div class="objection-item"><h4>“Isso é aprovado pela FDA?”</h4><p>A tesamorelina é aprovada como EGRIFTA <strong>para lipodistrofia associada ao HIV</strong>. Fora disso é uso off-label, e a preparação manipulada <strong>não é aprovada pela FDA</strong>. Por isso existe avaliação médica antes.</p></div>
+    <div class="objection-item"><h4>“É seguro?”</h4><p>Só um provedor licenciado pode avaliar. Efeitos relatados incluem reações no local da injeção, artralgia, edema e alterações de glicemia/IGF-1. Nem todos os pacientes qualificam.</p></div>
+    <div class="objection-item"><h4>“E se eu parar?”</h4><p>Os efeitos sobre gordura visceral tendem a regredir com a descontinuação. Isso é discutido na avaliação — e é motivo para não prometer resultado permanente.</p></div>
+    <div class="objection-item"><h4>“Quanto tempo?”</h4><p>Os ensaios avaliaram em <strong>26 semanas</strong>. Não prometemos prazo individual. Resultados variam.</p></div>
+    <div class="objection-item"><h4>“Preciso injetar todo dia?”</h4><p>Sim, aplicação subcutânea diária. A adesão é parte do que o acompanhamento monitora.</p></div>
+    <div class="objection-item"><h4>“Posso usar com GLP-1 ou TRT?”</h4><p>Decisão exclusiva do provedor na avaliação. Nunca ajuste, interrompa ou combine tratamento por conta própria.</p></div>
+  </div>
+
+  <div class="section" id="sec-awareness">
+
+    <table>
+      <tr><th>#</th><th>Estágio</th><th>Mensagem</th><th>Frase-âncora</th></tr>
+      <tr><td>1</td><td><strong>Most Aware</strong></td><td>Fonte, supervisão e protocolo</td><td>“GHRH analog, 503A compounding, physician-supervised. Here’s the protocol.”</td></tr>
+      <tr><td>2</td><td><strong>Product-Aware</strong></td><td>Legitimidade e supervisão</td><td>“The difference isn’t the peptide. It’s whether a licensed provider is watching the labs.”</td></tr>
+      <tr><td>3</td><td><strong>Solution-Aware</strong></td><td>Sinal vs reposição</td><td>“HGH replaces the hormone. GHRH asks for it. Your axis stays yours.”</td></tr>
+      <tr><td>4</td><td><strong>Problem-Aware</strong></td><td>Educação: compartimento</td><td>“If your belly is firm and you can’t pinch it, you’re not fighting the fat you think you are.”</td></tr>
+      <tr><td>5</td><td><strong>Unaware</strong></td><td>Nomear com um teste</td><td>“Stand up and try to pinch your belly. What happens next tells you which fat you have.”</td></tr>
+    </table>
+
+    <div class="info-card" style="border-color:var(--green)">
+      <h3>⭐ Teste de consciência — The Pinch Test</h3>
+      <p>Fique de pé. Tente agarrar a barriga com a mão.</p>
+      <p><strong>Se vier um punhado mole</strong> — é gordura subcutânea, a que todo mundo discute.</p>
+      <p><strong>Se estiver firme, empurrando pra fora, e quase não der pra pinçar</strong> — é a outra. A que fica atrás da parede.</p>
+      <p class="alt-why">Gratuito, imediato, binário, e verificável em 5 segundos. É o equivalente ao teste do elástico do Crowned — e o ativo mais forte para os estágios 4 e 5.</p>
+    </div>
+
+  </div>
+
+  <div class="section" id="sec-compliance">
+
+    <div class="info-card" style="border-color:var(--red)">
+      <h3>⚖️ Classe D — prescrição / telessaúde</h3>
+      <p>Com componente <strong>manipulado não aprovado pela FDA</strong>. Ficha completa em <code>00-COMPLIANCE/ficha-de-classe.md</code>.</p>
+    </div>
+    <div class="two-col">
+      <div class="info-card"><h4>✅ Obrigatório em toda peça</h4><ul>
+        <li>Not all patients will qualify</li>
+        <li>Treatment only after a comprehensive medical evaluation</li>
+        <li>Compounded preparations are not FDA-approved</li>
+        <li>Not medical advice — consult a qualified provider</li>
+        <li>Individual results vary</li>
+        <li>21+</li></ul></div>
+      <div class="info-card" style="border-color:var(--red)"><h4>❌ Proibido</h4><ul>
+        <li>Promessa de kg, cm ou prazo</li>
+        <li>Before/after corporal</li>
+        <li>Desaconselhar ou criticar tratamento alheio (GLP-1 incluso)</li>
+        <li>Sugerir dose ou protocolo específico</li>
+        <li>Hook de cura para os avatares 4 e 8</li></ul></div>
+    </div>
+    <h3 class="section-title">Canais</h3>
+    <table>
+      <tr><th>Canal</th><th>Viabilidade</th></tr>
+      <tr><td>E-mail e SEO</td><td>✅ o mais realista para este perfil de oferta</td></tr>
+      <tr><td>Native (Taboola/Outbrain)</td><td>⚠️ viável com aprovação editorial</td></tr>
+      <tr><td>Google</td><td>⚠️ exige certificação de saúde/farmácia (LegitScript)</td></tr>
+      <tr><td>Meta</td><td>⚠️ altamente restrito — saúde pessoal + prescrição</td></tr>
+      <tr><td>TikTok</td><td>❌ praticamente inviável</td></tr>
+    </table>
+    <div class="info-card" style="border-color:var(--orange)">
+      <h3>🚩 Item nº1 para o jurídico da Aevra</h3>
+      <p>O site-mãe declara <em>“treatment is only initiated after a comprehensive medical evaluation”</em>, mas a loja vende vials de tesamorelina direto, com cupom <code>20OFF</code> e checkout.</p>
+      <p><strong>Os dois fluxos exigem copy diferente e carregam exposição diferente.</strong> Toda a copy deste brief foi escrita para funcionar nos dois — o CTA leva à avaliação/qualificação e nunca promete dispensação sem prescrição. <strong>Confirmar antes de publicar.</strong></p>
+    </div>
+
+  </div>
+
+  <div class="section" id="sec-estruturas">
+    <div class="info-card">
+      <h3>⏸ Pendente — etapa 2</h3>
+      <p>Ads de referência dissecados em blocos narrativos rotulados, EN e PT-BR.</p>
+      <p class="alt-why">Esta seção é preenchida quando a etapa 2 do pipeline rodar.
+      O brief precisa ser aprovado antes — MUP e Big Idea são a base de tudo que vem depois.</p>
+    </div>
+  </div>
+
+  <div class="section" id="sec-hooks">
+    <div class="info-card">
+      <h3>⏸ Pendente — etapa 2</h3>
+      <p>8 ângulos × 5 hooks = 40 hooks, cada um com padrão e nível de Pathos declarados, com botão de copiar.</p>
+      <p class="alt-why">Esta seção é preenchida quando a etapa 2 do pipeline rodar.
+      O brief precisa ser aprovado antes — MUP e Big Idea são a base de tudo que vem depois.</p>
+    </div>
+  </div>
+
+  <div class="section" id="sec-longtext">
+    <div class="info-card">
+      <h3>⏸ Pendente — etapa 2</h3>
+      <p>8 long text ads, um por ângulo, cada um com avatar e registro diferentes.</p>
+      <p class="alt-why">Esta seção é preenchida quando a etapa 2 do pipeline rodar.
+      O brief precisa ser aprovado antes — MUP e Big Idea são a base de tudo que vem depois.</p>
+    </div>
+  </div>
+
+  <div class="section" id="sec-statics">
+    <div class="info-card">
+      <h3>⏸ Pendente — etapa 2</h3>
+      <p>8 conceitos de imagem estática UGC 1:1 + prompts prontos para o Google Antigravity / Nano Banana.</p>
+      <p class="alt-why">Esta seção é preenchida quando a etapa 2 do pipeline rodar.
+      O brief precisa ser aprovado antes — MUP e Big Idea são a base de tudo que vem depois.</p>
+    </div>
+  </div>
+
+  <div class="section" id="sec-metricas">
+
+    <div class="info-card" style="border-color:var(--orange)">
+      <h4>⚠️ Benchmarks herdados do Crowned — não são desta oferta</h4>
+      <p>As faixas abaixo vieram de uma oferta <strong>Classe A</strong> (cosmético, venda direta). Esta oferta é <strong>Classe D</strong>, com canais restritos e ticket diferente. Sirva-se delas como estrutura de diagnóstico, <strong>não como meta</strong>. <span class="tag tag-orange">⟨verificar com dados reais da Aevra⟩</span></p>
+    </div>
+    <table>
+      <tr><th>Métrica</th><th>Imagem</th><th>Vídeo</th></tr>
+      <tr><td>CPM</td><td>$40–$55</td><td>$50–$65</td></tr>
+      <tr><td>CPC</td><td>$0.50–$0.80</td><td>$1.00–$1.20</td></tr>
+      <tr><td>Connect Rate</td><td colspan="2">&gt;85%</td></tr>
+      <tr><td>Hook Rate</td><td>—</td><td>&gt;50%</td></tr>
+      <tr><td>Body Rate</td><td>—</td><td>&gt;5%</td></tr>
+      <tr><td>Adv → Checkout</td><td colspan="2">25–30%</td></tr>
+      <tr><td>Conversão no Checkout</td><td>8%</td><td>12%</td></tr>
+      <tr><td>IC</td><td>$6–$8</td><td>$8–$10</td></tr>
+    </table>
+    <h3 class="section-title">Diagnóstico — métrica fraca → bloco culpado</h3>
+    <table>
+      <tr><th>Sintoma</th><th>O que reescrever</th></tr>
+      <tr><td>Hook Rate baixo</td><td>Bloco <code>HOOK</code> — subir Pathos, trocar padrão, testar H2</td></tr>
+      <tr><td>Body Rate baixo</td><td><code>TIMELINE</code> / <code>HISTÓRIA EMOCIONAL</code> — falta loop aberto</td></tr>
+      <tr><td>Adv → Checkout baixo</td><td><code>QUEBRA DE OBJEÇÕES</code> / <code>MECANISMO DA SOLUÇÃO</code></td></tr>
+      <tr><td>CTR alto + conversão baixa</td><td>Realinhar <code>HOOK</code> com a oferta</td></tr>
+      <tr><td>CPM muito acima</td><td>Possível penalização por claim/imagem corporal — rodar auditoria de compliance</td></tr>
+    </table>
+
+  </div>
+
+</main>
+
+<div class="toast" id="toast">✓ Copiado!</div>
+
+<script>
+
+function showSection(id, e) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+
+  const sec = document.getElementById('sec-' + id);
+  if (sec) sec.classList.add('active');
+
+  if (e && e.currentTarget) e.currentTarget.classList.add('active');
+
+  const titles = {
+    'overview': ['Vis\u00e3o Geral', 'Produto, evid\u00eancia e solu\u00e7\u00f5es alternativas'],
+    'target': ['Target Audience', 'P\u00fablico-alvo, renda e perfil'],
+    'avatars': ['Avatares', '8 personas com gatilhos de convers\u00e3o distintos'],
+    'psychology': ['Won\u0027t Tell / Can\u0027t Tell', 'O que ele esconde e o que n\u00e3o sabe que sente'],
+    'emotional-code': ['C\u00f3digo Emocional', 'Ethos \u00d7 Pathos \u00d7 Formato por persona'],
+    'bigidea': ['Big Idea & Mecanismo', 'MUP, cadeia causal e hierarquia de revela\u00e7\u00e3o'],
+    'ingredients': ['Ativo', 'Tesamorelina \u2014 papel narrativo e teto de claim'],
+    'forces': ['For\u00e7as Vitais & VOC', 'Motores emocionais e linguagem do p\u00fablico'],
+    'objections': ['Obje\u00e7\u00f5es', 'Respostas dentro do teto de claim Classe D'],
+    'awareness': ['Est\u00e1gios de Consci\u00eancia', 'Mensagem por n\u00edvel + o Pinch Test'],
+    'compliance': ['Compliance', 'Classe D \u2014 limites, obrigat\u00f3rios e canais'],
+    'estruturas': ['Estruturas Invis\u00edveis', 'Ads dissecados em blocos \u2014 etapa 2'],
+    'hooks': ['\u00c2ngulos & Hooks', '8 \u00e2ngulos \u00d7 5 hooks \u2014 etapa 2'],
+    'longtext': ['Long Text Ads', '8 an\u00fancios long-form \u2014 etapa 2'],
+    'statics': ['Imagens Est\u00e1ticas', '8 conceitos UGC + prompts \u2014 etapa 2'],
+    'metricas': ['M\u00e9tricas de Tr\u00e1fego', 'Faixas de refer\u00eancia e diagn\u00f3stico']
+  };
+
+  const t = titles[id] || ['', ''];
+  document.getElementById('page-title').textContent = t[0];
+  document.getElementById('page-subtitle').textContent = t[1];
+
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+
+  window.scrollTo(0, 0);
+}
+
+function toggleAvatar(header) {
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
+}
+
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('open');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg || '\u2713 Copiado!';
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+function copyAdText(bodyId) {
+  const el = document.getElementById(bodyId);
+  if (!el) return;
+  // usa apenas o idioma visivel
+  let scope = el;
+  const langs = el.querySelectorAll('.lang-content');
+  if (langs.length) {
+    for (let i = 0; i < langs.length; i++) {
+      if (window.getComputedStyle(langs[i]).display !== 'none') { scope = langs[i]; break; }
+    }
+  }
+  // um paragrafo por bloco, separados por linha em branco; rotulos de dissecacao ficam de fora
+  const paras = scope.querySelectorAll('p');
+  let text = '';
+  if (paras.length) {
+    const arr = [];
+    for (let i = 0; i < paras.length; i++) {
+      const t = paras[i].innerText.trim();
+      if (t) arr.push(t);
+    }
+    text = arr.join('\n\n');
+  } else {
+    text = scope.innerText.trim();
+  }
+  navigator.clipboard.writeText(text).then(() => {
+    showToast('\u2713 Ad copiado!');
+    const card = el.closest('.ad-card');
+    card.querySelectorAll('.copy-btn, .copy-btn-bottom').forEach(btn => {
+      btn.classList.add('copied');
+      const orig = btn.innerHTML;
+      btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Copiado!';
+      setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = orig; }, 2000);
+    });
+  });
+}
+
+function copyHook(hookId) {
+  const el = document.getElementById(hookId);
+  if (!el) return;
+  const text = el.querySelector('p').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    showToast('\u2713 Hook copiado!');
+    const btn = el.querySelector('.copy-btn-sm');
+    btn.classList.add('copied');
+    setTimeout(() => btn.classList.remove('copied'), 2000);
+  });
+}
+
+function switchLang(cardId, lang, btn) {
+  var card = document.getElementById(cardId);
+  card.querySelectorAll('.lang-content').forEach(function(el) {
+    el.style.display = 'none';
+  });
+  card.querySelectorAll('.lang-btn').forEach(function(b) {
+    b.classList.remove('active');
+  });
+  card.querySelector('[data-lang="' + lang + '"]').style.display = 'block';
+  btn.classList.add('active');
+}
+
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('show');
+}
+
+</script>
+</body>
+</html>
