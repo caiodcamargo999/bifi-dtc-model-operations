@@ -49,7 +49,10 @@
       "Bash(gh repo *)",
       "Bash(curl -s --max-time 20 \"https://api.github.com/repos/caiodcamargo999/bifi-dtc-model-for-ggm\")",
       "Bash(git init *)",
-      "Bash(git count-objects *)"
+      "Bash(git count-objects *)",
+      "Bash(curl -s --max-time 25 \"https://api.github.com/repos/caiodcamargo999/bifi-dtc-model-for-ggm\")",
+      "Bash(curl -s --max-time 25 \"https://api.github.com/repos/caiodcamargo999/bifi-dtc-model-for-ggm/contents/\")",
+      "Bash(git commit -q -m 'chore: atualiza permissoes locais de sessao *)"
     ],
     "additionalDirectories": [
       "c:\\Users\\lenovo\\Desktop\\DIGITAL MARKETING\\01_AFFILIATE AND REMOTE WORK\\03_AFFILIATE PRO DTC BIFI\\bifi-knowladge-project\\.claude\\skills"
