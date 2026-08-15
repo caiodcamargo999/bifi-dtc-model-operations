@@ -9,6 +9,24 @@
 
 ---
 
+## Status de geração
+
+As 8 imagens foram geradas no Google Antigravity / Nano Banana. **Formato real de saída: JPEG**
+(renomeado de `.png` para `.jpg` — os arquivos originais vieram com a extensão errada).
+
+| Arquivo | Status | Observação |
+|---|---|---|
+| `AD01.jpg` | ✅ aprovado | |
+| `AD02.jpg` | 🔴 **regerar** | mostra o homem pinçando uma dobra mole com facilidade — o oposto do que o hook "Pinch Test" descreve. Prompt corrigido em `PROMPTS-PARA-NANO-BANANA.txt`. |
+| `AD03.jpg` | ✅ aprovado | |
+| `AD04.jpg` | ✅ aprovado | |
+| `AD05.jpg` | ✅ aprovado | tela do celular corretamente ilegível |
+| `AD06.jpg` | ✅ aprovado | melhor execução do lote — contradição roupa/corpo clara |
+| `AD07.jpg` | ✅ aprovado | visor da balança corretamente ilegível |
+| `AD08.jpg` | ✅ aprovado | |
+
+---
+
 ## Especificação inegociável
 
 | Atributo | Valor |
@@ -37,14 +55,18 @@
 
 ---
 
-### AD02 · Ângulo 2 — QUALIFICAÇÃO (The Pinch Test) ⭐
+### AD02 · Ângulo 2 — QUALIFICAÇÃO (The Pinch Test) ⭐ 🔴 REGERAR
 **Avatar:** O Executivo · **Pareia com:** hooks 2.1–2.5 · ad text AD2
-**Momento:** a mão tentando pinçar a barriga — os dedos quase não fecham sobre nada.
+**Momento:** a mão tentando pinçar a barriga — os dedos **não conseguem** fechar sobre nada.
 **Demonstra:** **o teste de consciência do brief, executado no quadro.** É o conceito herói do lote.
 **Emoção:** concentração, quase curiosidade — ele está testando, não sofrendo.
 **Cenário:** espelho de banheiro, luz de cima, camiseta levantada até o peito.
 
 > Este é o único conceito que **ensina o teste sem uma palavra**. Se só um for produzido, é este.
+>
+> 🔴 **A saída atual falhou.** Mostra os dedos pinçando uma dobra mole com facilidade — exatamente
+> o resultado que o teste deveria descartar. Regere com o prompt corrigido em
+> `PROMPTS-PARA-NANO-BANANA.txt` antes de usar esta imagem em qualquer criativo.
 
 ---
 

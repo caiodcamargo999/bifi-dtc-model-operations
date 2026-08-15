@@ -2,7 +2,7 @@
 LONG TEXT AD 5 · AEVRA / Tesamorelina
 Ângulo 5 — IDENTIDADE · Avatar: O Ex-Atleta / O Executivo
 Registro: narrativo emocional · Estágio 3–5 · 497 palavras · EN-US
-Pareia com: AD05.png · hooks 5.1–5.5
+Pareia com: AD05.jpg · hooks 5.1–5.5
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 **[HEADLINE]**

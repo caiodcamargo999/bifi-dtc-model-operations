@@ -2,7 +2,7 @@
 LONG TEXT AD 8 · AEVRA / Tesamorelina
 Ângulo 8 — DESCOBERTA · Avatar: O do Exame Alterado / O Fígado Gorduroso
 Registro: conservador + FAQ de compatibilidade · Estágio 1–4 · 566 palavras · EN-US
-Pareia com: AD08.png · hooks 8.1–8.5
+Pareia com: AD08.jpg · hooks 8.1–8.5
 ⚠️ Avatares cautelosos e sob acompanhamento — NUNCA hook de cura, nunca prometer alterar exame
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

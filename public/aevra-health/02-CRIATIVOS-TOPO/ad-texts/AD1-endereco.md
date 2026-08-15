@@ -2,7 +2,7 @@
 LONG TEXT AD 1 · AEVRA / Tesamorelina
 Ângulo 1 — ENDEREÇO · Avatar: O Executivo de Barriga Dura
 Registro: advertorial investigativo · Estágio 4–5 · 512 palavras · EN-US
-Pareia com: AD01.png · hooks 1.1–1.5
+Pareia com: AD01.jpg · hooks 1.1–1.5
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 **[HEADLINE]**

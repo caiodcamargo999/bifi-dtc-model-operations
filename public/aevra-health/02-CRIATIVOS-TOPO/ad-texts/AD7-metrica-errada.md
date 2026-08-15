@@ -2,7 +2,7 @@
 LONG TEXT AD 7 · AEVRA / Tesamorelina
 Ângulo 7 — A MÉTRICA ERRADA · Avatar: A Redistribuição dos 45+
 Registro: notícia de saúde, 3ª pessoa · Estágio 2–4 · 534 palavras · EN-US
-Pareia com: AD07.png · hooks 7.1–7.5
+Pareia com: AD07.jpg · hooks 7.1–7.5
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 **[HEADLINE]**

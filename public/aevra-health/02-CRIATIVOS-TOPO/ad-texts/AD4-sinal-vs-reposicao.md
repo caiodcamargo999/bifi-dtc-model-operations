@@ -2,7 +2,7 @@
 LONG TEXT AD 4 · AEVRA / Tesamorelina
 Ângulo 4 — SINAL vs REPOSIÇÃO · Avatar: O que Recuou do HGH / O Otimizador
 Registro: comparativo mecanicista · Estágio 1–3 · 559 palavras · EN-US
-Pareia com: AD04.png · hooks 4.1–4.5
+Pareia com: AD04.jpg · hooks 4.1–4.5
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 **[HEADLINE]**

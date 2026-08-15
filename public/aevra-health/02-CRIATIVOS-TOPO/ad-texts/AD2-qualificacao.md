@@ -2,7 +2,7 @@
 LONG TEXT AD 2 · AEVRA / Tesamorelina
 Ângulo 2 — QUALIFICAÇÃO (The Pinch Test) · Avatar: O Executivo / A Redistribuição 45+
 Registro: UGC primeira pessoa, curto e cru · Estágio 4–5 · 431 palavras · EN-US
-Pareia com: AD02.png · hooks 2.1–2.5
+Pareia com: AD02.jpg · hooks 2.1–2.5
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 **[HEADLINE]**

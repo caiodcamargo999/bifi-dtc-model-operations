@@ -96,7 +96,7 @@
 > Visceral fat sits behind your abdominal wall, wrapped around your organs. Every method you've paid for works in front of that wall. That's the entire story.
 
 **3.3** · confissão íntima · Pathos 4
-> I spent eleven thousand dollars on my midsection. Not one of those procedures was physically capable of touching what was actually bothering me. Nobody told me that beforehand.
+> I paid for procedure after procedure on my midsection. Not one of them was physically capable of touching what was actually bothering me. Nobody told me that beforehand.
 
 **3.4** · personificação / POV · Pathos 3
 > There's a wall of muscle between your hands and the fat that's changing your shape. Everything you've tried stopped at that wall.
@@ -234,7 +234,7 @@
 > Ask your doctor what GHRH does and watch what happens. Most of the answer isn't in the fat-loss conversation at all.
 
 **8.4** · súplica / desafio · Pathos 3
-> Three things I wish I'd known before spending eleven thousand dollars on my midsection: fat has compartments, procedures have a reach limit, and one of them was studied by scan.
+> Three things I wish I'd known before paying for procedure after procedure on my midsection: fat has compartments, procedures have a reach limit, and one of them was studied by scan.
 
 **8.5** · confissão íntima · Pathos 3 ⟨v⟩
 > I found it in a study about a completely different condition. That's the only reason I know it exists.

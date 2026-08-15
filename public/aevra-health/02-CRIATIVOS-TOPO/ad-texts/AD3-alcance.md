@@ -2,7 +2,7 @@
 LONG TEXT AD 3 · AEVRA / Tesamorelina
 Ângulo 3 — ALCANCE (o category killer) · Avatar: O Ex-Atleta
 Registro: investigativo de mecanismo · Estágio 2–3 · 548 palavras · EN-US
-Pareia com: AD03.png · hooks 3.1–3.5
+Pareia com: AD03.jpg · hooks 3.1–3.5
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 **[HEADLINE]**
@@ -18,7 +18,7 @@ I'm 43. I played competitively until 28 and lifted seriously until 33. I never h
 Now I train less, but I still train. And the same work that used to produce a result produces a different one. I gain less where I want it and accumulate more in the middle. Nothing about my effort changed. The return did.
 
 **[PONTO DE DESESPERO]**
-By the time I was 41 I'd spent about eleven thousand dollars on my midsection across a few different approaches. I want to be careful how I say this, because the practitioners were competent and honest with me about what they do.
+By the time I was 41 I'd tried a genuine handful of approaches for my midsection — a procedure, a device, a couple of different training protocols. I want to be careful how I say this, because the practitioners were competent and honest with me about what they do.
 
 **[SPOILER DA CAUSA RAIZ]**
 What none of it addressed was location.
@@ -60,5 +60,6 @@ Not all patients will qualify. Treatment is only initiated after a comprehensive
 evaluation. Compounded preparations are not FDA-approved. This is not medical advice —
 consult a qualified healthcare provider. Individual results vary. 21+.
 
-⚠️ O valor "eleven thousand dollars" precisa ser verdadeiro ou removido. Ver auditoria.
+✅ CORRIGIDO: o valor não-verificado "eleven thousand dollars" foi removido do bloco
+PONTO DE DESESPERO e substituído por linguagem qualitativa defensável.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

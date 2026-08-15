@@ -2,7 +2,7 @@
 LONG TEXT AD 6 · AEVRA / Tesamorelina
 Ângulo 6 — PÓS-GLP-1 · Avatar: O Sobrevivente do GLP-1
 Registro: comunidade / peer-to-peer · Estágio 3–4 · 521 palavras · EN-US
-Pareia com: AD06.png · hooks 6.1–6.5
+Pareia com: AD06.jpg · hooks 6.1–6.5
 ⚠️ MAIOR VOLUME DE MERCADO DO LOTE — testar primeiro
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

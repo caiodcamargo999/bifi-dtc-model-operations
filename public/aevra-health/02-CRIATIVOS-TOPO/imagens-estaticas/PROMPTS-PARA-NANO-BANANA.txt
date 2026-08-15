@@ -1,6 +1,12 @@
 AEVRA HEALTH - TESAMORELINA - 8 PROMPTS PARA GOOGLE ANTIGRAVITY / NANO BANANA
 Cole um bloco por vez. Nao edite as frases finais.
-Salve as saidas como AD01.png ... AD08.png nesta mesma pasta.
+Salve as saidas como AD01.jpg ... AD08.jpg nesta mesma pasta (formato real de saida = JPEG).
+
+>>> AD02 PRECISA SER REGERADO <<<
+A saida atual do AD02.jpg mostra o homem pinçando uma dobra mole com facilidade -
+o oposto do que a copy e o hook do angulo 2 (The Pinch Test) descrevem. O prompt abaixo
+ja foi corrigido para deixar explicito que os dedos NAO conseguem fechar sobre nada.
+Regere so este bloco e substitua o arquivo.
 
 
 === AD01 - ANGULO 1 - ENDERECO ===
@@ -8,9 +14,9 @@ Salve as saidas como AD01.png ... AD08.png nesta mesma pasta.
 A first-person point-of-view phone snapshot taken by a man in his late forties looking straight down at his own bare stomach in a home bathroom. His chin is slightly visible at the top of the frame and his bare feet are visible at the bottom on beige tile. His abdomen is firm and rounded, pushing outward rather than hanging soft. He is holding the phone with one hand, so the framing is slightly tilted and his other arm hangs at his side. Harsh overhead bathroom lighting from directly above creates hard shadows under his chest and washes out the highlights on his skin. Shot on an iPhone front-facing camera, slightly overexposed, mild motion blur, amateur unposed framing. A cluttered bathroom counter with a toothbrush cup, a deodorant stick and a folded hand towel is partly visible at the edge of the frame. Candid, unposed, no makeup, tired skin. Square 1:1 format. No text, no captions, no logos, no watermarks, no graphics overlaid on the image. visible pores, micro-texture, natural skin imperfections, subtle peach fuzz, natural skin sheen, no airbushing, no smoothing filters
 
 
-=== AD02 - ANGULO 2 - PINCH TEST (CONCEITO HERO) ===
+=== AD02 - ANGULO 2 - PINCH TEST (CONCEITO HERO) - PROMPT CORRIGIDO, REGERAR ===
 
-A close candid phone photograph of a man in his mid forties standing in front of a home bathroom mirror with his t-shirt pulled up to his chest, using his right hand to try to pinch the skin of his stomach between thumb and fingers. His fingers barely close on anything because the abdomen is firm and taut rather than soft. His expression is concentrated and curious, looking down at his own hand, not distressed. Harsh fluorescent light from directly overhead, slightly overexposed skin, hard shadow under the arm. Shot handheld on a phone, framing slightly crooked and cropped tightly at the shoulders. A messy bathroom counter with toothpaste and a razor sits blurred behind him in the mirror. Candid, unposed, no makeup, real domestic clutter. Square 1:1 format. No text, no captions, no logos, no watermarks, no graphics overlaid on the image. visible pores, micro-texture, natural skin imperfections, subtle peach fuzz, natural skin sheen, no airbushing, no smoothing filters
+A close candid phone photograph of a man in his mid forties standing in front of a home bathroom mirror with his t-shirt pulled up to his chest, using his right hand to try and fail to pinch the skin of his stomach between thumb and fingers. His thumb and fingers press against the skin but cannot gather any fold at all - the abdomen underneath is completely firm and taut, so the fingers slide off flat instead of closing around a handful. His expression is concentrated and slightly puzzled, looking down at his own hand, not distressed. Harsh fluorescent light from directly overhead, slightly overexposed skin, hard shadow under the arm. Shot handheld on a phone, framing slightly crooked and cropped tightly at the shoulders. A messy bathroom counter with toothpaste and a razor sits blurred behind him in the mirror. Candid, unposed, no makeup, real domestic clutter. Square 1:1 format. No text, no captions, no logos, no watermarks, no graphics overlaid on the image. visible pores, micro-texture, natural skin imperfections, subtle peach fuzz, natural skin sheen, no airbushing, no smoothing filters
 
 
 === AD03 - ANGULO 3 - ALCANCE ===
