@@ -1,0 +1,22 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/bubblegum-and-duct-tape/03-ADVERTORIAIS/tesamorelin/01"
+    },
+    {
+      "source": "/01",
+      "destination": "/bubblegum-and-duct-tape/03-ADVERTORIAIS/tesamorelin/01"
+    },
+    {
+      "source": "/02",
+      "destination": "/bubblegum-and-duct-tape/03-ADVERTORIAIS/tesamorelin/02"
+    },
+    {
+      "source": "/03",
+      "destination": "/bubblegum-and-duct-tape/03-ADVERTORIAIS/tesamorelin/03"
+    }
+  ]
+}

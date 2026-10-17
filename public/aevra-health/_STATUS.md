@@ -15,10 +15,9 @@ SLUG      aevra-health
 | **0 · Compliance** | ✅ | `00-COMPLIANCE/ficha-de-classe.md` |
 | **1 · Brief** | ✅ aprovado, com etapa 2/3 já embutidas | `01-BRIEF/brief.md` + `brief.html` |
 | **2 · Criativos de topo** | ✅ completa | `02-CRIATIVOS-TOPO/` |
-| **3 · Advertoriais** | ✅ **3 de 3 construídos** | `03-ADVERTORIAIS/` |
+| **3 · Advertoriais** | ✅ **4 de 4 construídos** | `03-ADVERTORIAIS/` |
 
-**Pipeline completo.** Falta apenas: regerar 1 imagem (AD02) e o cliente confirmar 2 itens
-de negócio (VOC real, fluxo de checkout). Ver pendências abaixo.
+**Pipeline completo.** Todas as imagens estáticas integradas nos 4 advertoriais. Falta apenas o cliente confirmar 2 itens de negócio (VOC real, fluxo de checkout). Ver pendências abaixo.
 
 ---
 
@@ -28,7 +27,9 @@ de negócio (VOC real, fluxo de checkout). Ver pendências abaixo.
 |---|---|---|---|
 | `03-ADVERTORIAIS/ADV1-pos-glp1/` | 6 — Pós-GLP-1 | comunidade/peer-to-peer | AD06.jpg |
 | `03-ADVERTORIAIS/ADV2-alcance/` | 3 — Alcance (category killer) | investigativo | AD03.jpg |
-| `03-ADVERTORIAIS/ADV3-pinch-test/` | 2 — Pinch Test | UGC cru | ⏸ aguardando AD02 regerado |
+| `03-ADVERTORIAIS/ADV3-over-40-momentum/` | 5 & 1 — Over-40 Momentum Feminino / Visceral Fat | narrativo feminino + descoberta científica | ✅ hero.jpg integrado |
+| `03-ADVERTORIAIS/ADV4-over-40-momentum/` | 5 & 1 — Over-40 Momentum Masculino / Visceral Fat | narrativo masculino + descoberta científica | ✅ hero.jpg integrado |
+| `03-ADVERTORIAIS/ADV5-momentum/` | 5 & 1 — Over-40 Momentum Masculino / Visceral Fat | narrativo agressivo + congruente com vídeo criativo | ✅ hero.jpg integrado |
 
 Arquétipo **STORY** (17 seções — 22 do esqueleto menos "AS SEEN ON" e "comentários",
 omitidas por compliance, ver abaixo). Cada um com quiz de qualificação de 6 perguntas,
@@ -55,13 +56,6 @@ Classe D** e foram deliberadamente removidas ou reformuladas aqui:
 plataforma/jurídico de uma que não sobrevive.** Se o jurídico da Aevra quiser reintroduzir
 qualquer um dos padrões da esquerda, é decisão deles, documentada e assinada — não algo
 para reintroduzir por conta própria copiando o Crowned.
-
-### Pendência de imagem — ADV3
-
-`AD02.jpg` (Pinch Test) mostra o oposto do que a copy descreve — dedos pinçando uma dobra
-mole com facilidade, quando o argumento é que **não dá para pinçar**. Prompt corrigido em
-`02-CRIATIVOS-TOPO/imagens-estaticas/PROMPTS-PARA-NANO-BANANA.txt`. Até a regeração,
-`ADV3-pinch-test/index.html` não tem hero image (nota em `imagens/_PENDENTE.md`).
 
 ---
 
@@ -134,7 +128,6 @@ resposta**. Se existir uma URL de intake/avaliação separada, é ela que deveri
 | 3 | Queda de GH ~14%/década | Baixo — citação a confirmar |
 | 4 | TAM de peptídeos (~$52bi) — fonte primária | Baixo |
 | 5 | Benchmarks são do Crowned (Classe A), não desta oferta | Médio — servem de estrutura, não de meta |
-| 6 | AD02.jpg precisa regeração | Alto — bloqueia hero do ADV3 |
 
 ## Decisões estruturais registradas
 

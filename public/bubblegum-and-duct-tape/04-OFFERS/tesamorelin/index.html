@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tesamorelin (10mg) | Clinical GHRH Visceral Lipolysis Protocol</title>
+  <meta name="description" content="Physician-guided Tesamorelin (GHRH Analog) protocol. Targeted visceral fat reduction, hepatic lipid clearance, and deep sleep pituitary secretagogue pulse restoration.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="../_shared/offer.css">
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    ⚡ <span>PHYSICIAN ALLOCATED BATCH:</span> ORDER TODAY &amp; GET FREE TELEHEALTH INTAKE + EXPRESS SHIPPING
+  </div>
+
+  <!-- MAIN HEADER -->
+  <header class="main-header">
+    <div class="header-inner">
+      <a href="#" class="header-logo">OUTFIT<span>MD</span> CLINICAL</a>
+      <div class="header-badges">
+        <div class="header-badge-item">
+          <span class="dot"></span> <span>BATCH #TS-2026 IN STOCK</span>
+        </div>
+        <div class="header-badge-item">
+          <span>🇺🇸 100% US COMPOUNDED</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container">
+    
+    <!-- PRODUCT HERO OFFER GRID -->
+    <div class="product-hero-grid">
+      
+      <!-- LEFT: PRODUCT MEDIA -->
+      <div class="product-gallery">
+        <div class="main-product-image">
+          <span class="gallery-badge">CLINICAL GHRH ANALOG</span>
+          <img id="mainProductImg" src="imagens/vial.jpg" alt="Tesamorelin 10mg Lyophilized Peptide Vial" width="440" height="440">
+        </div>
+        <div class="gallery-thumbnails">
+          <div class="gallery-thumb active" onclick="setThumb(this, 'imagens/vial.jpg')">
+            <img src="imagens/vial.jpg" alt="Vial View">
+          </div>
+          <div class="gallery-thumb" onclick="setThumb(this, '../_shared/vial.jpg')">
+            <img src="../_shared/vial.jpg" alt="Sterile Kit">
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: OFFER & BUNDLE SELECTOR -->
+      <div class="product-details">
+        
+        <div class="product-review-summary">
+          <span class="stars">★★★★★</span>
+          <span class="review-count">4.9 / 5.0</span>
+          <span>(1,480+ Clinical Patients)</span>
+        </div>
+
+        <h1 class="product-title">TESAMORELIN (10mg)</h1>
+        <p class="product-tagline">Targeted 44-Amino Acid GHRH Secretagogue for Deep Visceral Adipose Oxidation &amp; Hepatic Lipid Clearance.</p>
+
+        <ul class="product-bullets">
+          <li><span class="check">✓</span> <span><strong>Direct Visceral Lipolysis:</strong> Activates deep abdominal adipose receptors without synthetic HGH shutdown.</span></li>
+          <li><span class="check">✓</span> <span><strong>Normalizes Metabolic Markers:</strong> Clinical trials show dramatic reductions in liver steatosis, triglycerides, and CRP.</span></li>
+          <li><span class="check">✓</span> <span><strong>Physician Telehealth Supervised:</strong> Includes online medical intake and ongoing dosage oversight.</span></li>
+          <li><span class="check">✓</span> <span><strong>>99% HPLC Lyophilized Purity:</strong> Pharmaceutical-grade sterile compound crafted in certified US facilities.</span></li>
+        </ul>
+
+        <!-- PURCHASE MODE TOGGLE -->
+        <div class="purchase-mode-toggle">
+          <button type="button" class="purchase-mode-btn active" id="btnOneTime" onclick="setMode('onetime')">One-Time Protocol</button>
+          <button type="button" class="purchase-mode-btn" id="btnSubscribe" onclick="setMode('sub')">Subscribe &amp; Save <span class="save-pill">EXTRA 10% OFF</span></button>
+        </div>
+
+        <!-- BUNDLE SELECTOR CARDS -->
+        <div class="bundle-selector">
+          
+          <!-- TIER 2: MOST POPULAR (BUY 2 GET 1 FREE) -->
+          <div class="bundle-card selected" id="tier2" onclick="selectTier(2, 398, 747, 3, 'Buy 2 Vials + GET 1 VIAL FREE')">
+            <span class="bundle-badge">🔥 MOST POPULAR · BUY 2 GET 1 FREE</span>
+            <div class="bundle-left">
+              <div class="bundle-radio"></div>
+              <div class="bundle-info">
+                <h4>90-Day Visceral Reset (3 Vials)</h4>
+                <p>Buy 2 Vials + <strong>Get 1 FREE</strong> (90-Day Protocol)</p>
+                <span class="bonus-pill">+ Free Reconstitution Kit &amp; Doctor Intake</span>
+              </div>
+            </div>
+            <div class="bundle-price-wrap">
+              <div class="bundle-compare-price">$747.00</div>
+              <div class="bundle-main-price" id="t2Price">$398.00</div>
+              <div class="bundle-per-vial">$132.66 / vial</div>
+            </div>
+          </div>
+
+          <!-- TIER 3: VIP BEST VALUE (BUY 3 GET 3 FREE) -->
+          <div class="bundle-card" id="tier3" onclick="selectTier(3, 699, 1494, 6, 'Buy 3 Vials + GET 3 VIALS FREE')">
+            <span class="bundle-badge vip">👑 VIP OVERHAUL · BUY 3 GET 3 FREE</span>
+            <div class="bundle-left">
+              <div class="bundle-radio"></div>
+              <div class="bundle-info">
+                <h4>180-Day Complete Overhaul (6 Vials)</h4>
+                <p>Buy 3 Vials + <strong>Get 3 FREE</strong> (50% Off Protocol)</p>
+                <span class="bonus-pill">+ 2x Full Kits + Free Priority Insured Shipping</span>
+              </div>
+            </div>
+            <div class="bundle-price-wrap">
+              <div class="bundle-compare-price">$1,494.00</div>
+              <div class="bundle-main-price" id="t3Price">$699.00</div>
+              <div class="bundle-per-vial">$116.50 / vial</div>
+            </div>
+          </div>
+
+          <!-- TIER 1: STARTER PACK -->
+          <div class="bundle-card" id="tier1" onclick="selectTier(1, 199, 249, 1, '1 Vial Starter Protocol')">
+            <div class="bundle-left">
+              <div class="bundle-radio"></div>
+              <div class="bundle-info">
+                <h4>30-Day Starter (1 Vial)</h4>
+                <p>1x Tesamorelin 10mg Vial (30-Day Supply)</p>
+              </div>
+            </div>
+            <div class="bundle-price-wrap">
+              <div class="bundle-compare-price">$249.00</div>
+              <div class="bundle-main-price" id="t1Price">$199.00</div>
+              <div class="bundle-per-vial">$199.00 / vial</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CTA BUTTON -->
+        <button type="button" class="cta-submit-btn" id="mainCtaBtn" onclick="handleCheckout()">
+          CLAIM MY ALLOCATED PROTOCOL &rarr;
+        </button>
+
+        <!-- GUARANTEE SNIPPET -->
+        <div class="guarantee-snippet">
+          <div class="guarantee-icon">🛡️</div>
+          <div class="guarantee-text">
+            <h5>60-Day "Empty Vial" 100% Money-Back Guarantee</h5>
+            <p>If you do not see measurable improvements in your waistline and energy within 60 days of physician-guided use, we will refund 100% of your fee.</p>
+          </div>
+        </div>
+
+        <!-- TRUST BADGES -->
+        <div class="trust-badges-grid">
+          <div class="trust-badge-item">
+            <span class="icon">🇺🇸</span>
+            <span>US Compounded</span>
+          </div>
+          <div class="trust-badge-item">
+            <span class="icon">🔬</span>
+            <span>>99% HPLC Pure</span>
+          </div>
+          <div class="trust-badge-item">
+            <span class="icon">🩺</span>
+            <span>Doctor Guided</span>
+          </div>
+          <div class="trust-badge-item">
+            <span class="icon">🚚</span>
+            <span>Fast Cold Shipping</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- COMPARISON TABLE SECTION -->
+    <section class="section">
+      <h2 class="section-title">Why Clinical Tesamorelin Outperforms Generic Alternatives</h2>
+      <p class="section-subtitle">A direct comparison between our physician-guided GHRH protocol and conventional approaches.</p>
+
+      <div class="comparison-table-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Feature / Standard</th>
+              <th class="highlight">OutfitMD Tesamorelin Protocol</th>
+              <th>Generic Synthetic HGH</th>
+              <th>Black Market Peptides</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Pituitary Axis Preservation</strong></td>
+              <td class="highlight">✓ Yes (Pulsatile GHRH signaling)</td>
+              <td>✗ No (Completely shuts down axis)</td>
+              <td>✗ Unknown (Risk of adulteration)</td>
+            </tr>
+            <tr>
+              <td><strong>Targeted Visceral Adipose Lipolysis</strong></td>
+              <td class="highlight">✓ Clinically Proven &amp; Documented</td>
+              <td>✗ Generalized water retention</td>
+              <td>✗ Unverified potency</td>
+            </tr>
+            <tr>
+              <td><strong>Purity &amp; Sterility Certification</strong></td>
+              <td class="highlight">✓ >99% HPLC Lab Batch Certificate</td>
+              <td>⚠ Variable by pharmacy</td>
+              <td>✗ Zero sterile oversight</td>
+            </tr>
+            <tr>
+              <td><strong>Physician Consultation &amp; Support</strong></td>
+              <td class="highlight">✓ Included (100% Online Telehealth)</td>
+              <td>⚠ Requires expensive in-person visit</td>
+              <td>✗ None (Illegal for human use)</td>
+            </tr>
+            <tr>
+              <td><strong>60-Day Money-Back Guarantee</strong></td>
+              <td class="highlight">✓ 100% Risk-Free Guarantee</td>
+              <td>✗ No refunds</td>
+              <td>✗ No refunds</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="section">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Everything you need to know about the Tesamorelin clinical protocol.</p>
+
+      <div class="faq-grid">
+        <div class="faq-item open">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>How does the "Buy 2 Get 1 Free" and "Buy 3 Get 3 Free" offer work?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            When you select the 90-Day (3 Vials) or 180-Day (6 Vials) protocol, the free vials are automatically included in your shipment alongside the full bacteriostatic reconstitution supplies and physician review at no extra cost.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>How is Tesamorelin administered and reconstituted?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            Tesamorelin arrives as a sterile lyophilized powder cake. You reconstitute it using the provided bacteriostatic water and administer a small subcutaneous injection before bedtime (taking less than 30 seconds). Full video instructions are provided.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>Is a physician prescription required?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            Yes. Your order includes a streamlined online medical intake. A licensed US physician reviews your health profile and issues the prescription directly to our compounding pharmacy partner.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>What is the 60-Day Money-Back Guarantee policy?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            We are confident in our protocol's efficacy. If you follow the prescribed protocol and do not experience noticeable improvements in visceral fat reduction and overall vitality, simply contact our patient support team within 60 days for a full refund.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- STICKY MOBILE BOTTOM BAR -->
+  <div class="sticky-mobile-bar">
+    <div class="mobile-bar-price">
+      <h4 id="mobPrice">$398.00</h4>
+      <p id="mobTier">Buy 2 Get 1 Free (3 Vials)</p>
+    </div>
+    <button type="button" class="mobile-bar-btn" onclick="handleCheckout()">Claim Offer &rarr;</button>
+  </div>
+
+  <script>
+    let currentTier = 2;
+    let basePrice = 398;
+    let currentMode = 'onetime';
+
+    function selectTier(tierNum, price, compare, vials, title) {
+      currentTier = tierNum;
+      basePrice = price;
+      
+      document.querySelectorAll('.bundle-card').forEach(c => c.classList.remove('selected'));
+      document.getElementById('tier' + tierNum).classList.add('selected');
+
+      updatePricingDisplay();
+    }
+
+    function setMode(mode) {
+      currentMode = mode;
+      document.getElementById('btnOneTime').classList.toggle('active', mode === 'onetime');
+      document.getElementById('btnSubscribe').classList.toggle('active', mode === 'sub');
+      updatePricingDisplay();
+    }
+
+    function updatePricingDisplay() {
+      const discountMult = currentMode === 'sub' ? 0.9 : 1.0;
+      const finalPrice = Math.round(basePrice * discountMult);
+
+      document.getElementById('mobPrice').textContent = '$' + finalPrice + '.00';
+      if (currentTier === 2) {
+        document.getElementById('mobTier').textContent = 'Buy 2 Get 1 Free (3 Vials)' + (currentMode === 'sub' ? ' (Subscribed)' : '');
+      } else if (currentTier === 3) {
+        document.getElementById('mobTier').textContent = 'Buy 3 Get 3 Free (6 Vials)' + (currentMode === 'sub' ? ' (Subscribed)' : '');
+      } else {
+        document.getElementById('mobTier').textContent = 'Starter (1 Vial)' + (currentMode === 'sub' ? ' (Subscribed)' : '');
+      }
+    }
+
+    function setThumb(el, src) {
+      document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('mainProductImg').src = src;
+    }
+
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      item.classList.toggle('open');
+    }
+
+    function handleCheckout() {
+      const params = new URLSearchParams(window.location.search);
+      params.set('tier', currentTier);
+      params.set('mode', currentMode);
+      window.location.href = '#' + params.toString();
+    }
+  </script>
+
+</body>
+</html>

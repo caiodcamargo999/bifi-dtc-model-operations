@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KLOW Matrix (4-in-1 Peptide) | Synergistic Tissue &amp; Cellular Rebuild</title>
+  <meta name="description" content="Physician-guided KLOW 4-in-1 peptide matrix (GHK-Cu 50mg + BPC-157 10mg + TB-500 10mg + KPV 10mg). Cellular regeneration, tendon repair, dermal density, and inflammation cooling.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="../_shared/offer.css">
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    ⚡ <span>PHYSICIAN ALLOCATED BATCH:</span> ORDER TODAY &amp; GET FREE TELEHEALTH INTAKE + FREE RECONSTITUTION SUPPLIES
+  </div>
+
+  <!-- MAIN HEADER -->
+  <header class="main-header">
+    <div class="header-inner">
+      <a href="#" class="header-logo">OUTFIT<span>MD</span> CLINICAL</a>
+      <div class="header-badges">
+        <div class="header-badge-item">
+          <span class="dot"></span> <span>KLOW MATRIX IN STOCK</span>
+        </div>
+        <div class="header-badge-item">
+          <span>🇺🇸 100% US COMPOUNDED</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container">
+    
+    <!-- PRODUCT HERO OFFER GRID -->
+    <div class="product-hero-grid">
+      
+      <!-- LEFT: PRODUCT MEDIA -->
+      <div class="product-gallery">
+        <div class="main-product-image">
+          <span class="gallery-badge">4-IN-1 CLINICAL MATRIX</span>
+          <img id="mainProductImg" src="imagens/vial.jpg" alt="KLOW Matrix 4-in-1 Lyophilized Peptide Vial" width="440" height="440">
+        </div>
+        <div class="gallery-thumbnails">
+          <div class="gallery-thumb active" onclick="setThumb(this, 'imagens/vial.jpg')">
+            <img src="imagens/vial.jpg" alt="Vial View">
+          </div>
+          <div class="gallery-thumb" onclick="setThumb(this, '../_shared/vial.jpg')">
+            <img src="../_shared/vial.jpg" alt="Sterile Kit">
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: OFFER & BUNDLE SELECTOR -->
+      <div class="product-details">
+        
+        <div class="product-review-summary">
+          <span class="stars">★★★★★</span>
+          <span class="review-count">4.9 / 5.0</span>
+          <span>(1,820+ Active Patients)</span>
+        </div>
+
+        <h1 class="product-title">KLOW MATRIX (4-IN-1 PEPTIDE)</h1>
+        <p class="product-tagline">Synergistic Cellular Regeneration Formula: GHK-Cu (50mg) + BPC-157 (10mg) + TB-500 (10mg) + KPV (10mg).</p>
+
+        <ul class="product-bullets">
+          <li><span class="check">✓</span> <span><strong>Full-Spectrum Tissue Rebuild:</strong> Combines tendon angiogenesis, cellular actin repair, and collagen cross-linking.</span></li>
+          <li><span class="check">✓</span> <span><strong>Deep Extracellular Matrix (ECM) Synthesis:</strong> Restores skin elasticity, dermal thickness, and micro-vascular flow.</span></li>
+          <li><span class="check">✓</span> <span><strong>Targeted Inflammatory Cooling:</strong> KPV tripeptide down-regulates NF-κB and systemic joint stiffness.</span></li>
+          <li><span class="check">✓</span> <span><strong>Physician Guided &amp; Lab Certified:</strong> Includes asynchronous medical evaluation and >99% HPLC purity certification.</span></li>
+        </ul>
+
+        <!-- PURCHASE MODE TOGGLE -->
+        <div class="purchase-mode-toggle">
+          <button type="button" class="purchase-mode-btn active" id="btnOneTime" onclick="setMode('onetime')">One-Time Protocol</button>
+          <button type="button" class="purchase-mode-btn" id="btnSubscribe" onclick="setMode('sub')">Subscribe &amp; Save <span class="save-pill">EXTRA 10% OFF</span></button>
+        </div>
+
+        <!-- BUNDLE SELECTOR CARDS -->
+        <div class="bundle-selector">
+          
+          <!-- TIER 2: MOST POPULAR (BUY 2 GET 1 FREE) -->
+          <div class="bundle-card selected" id="tier2" onclick="selectTier(2, 299, 510, 3, 'Buy 2 Vials + GET 1 VIAL FREE')">
+            <span class="bundle-badge">🔥 MOST POPULAR · BUY 2 GET 1 FREE</span>
+            <div class="bundle-left">
+              <div class="bundle-radio"></div>
+              <div class="bundle-info">
+                <h4>90-Day Tissue Reset (3 Vials)</h4>
+                <p>Buy 2 Vials + <strong>Get 1 FREE</strong> (90-Day Protocol)</p>
+                <span class="bonus-pill">+ Free Reconstitution Kit &amp; Doctor Intake</span>
+              </div>
+            </div>
+            <div class="bundle-price-wrap">
+              <div class="bundle-compare-price">$510.00</div>
+              <div class="bundle-main-price" id="t2Price">$299.00</div>
+              <div class="bundle-per-vial">$99.66 / vial</div>
+            </div>
+          </div>
+
+          <!-- TIER 3: VIP BEST VALUE (BUY 3 GET 3 FREE) -->
+          <div class="bundle-card" id="tier3" onclick="selectTier(3, 499, 1020, 6, 'Buy 3 Vials + GET 3 VIALS FREE')">
+            <span class="bundle-badge vip">👑 VIP WOLVERINE · BUY 3 GET 3 FREE</span>
+            <div class="bundle-left">
+              <div class="bundle-radio"></div>
+              <div class="bundle-info">
+                <h4>180-Day Wolverine Protocol (6 Vials)</h4>
+                <p>Buy 3 Vials + <strong>Get 3 FREE</strong> (50% Off Protocol)</p>
+                <span class="bonus-pill">+ 2x Full Kits + Free Priority Insured Shipping</span>
+              </div>
+            </div>
+            <div class="bundle-price-wrap">
+              <div class="bundle-compare-price">$1,020.00</div>
+              <div class="bundle-main-price" id="t3Price">$499.00</div>
+              <div class="bundle-per-vial">$83.16 / vial</div>
+            </div>
+          </div>
+
+          <!-- TIER 1: STARTER PACK -->
+          <div class="bundle-card" id="tier1" onclick="selectTier(1, 139, 170, 1, '1 Vial Starter Protocol')">
+            <div class="bundle-left">
+              <div class="bundle-radio"></div>
+              <div class="bundle-info">
+                <h4>30-Day Starter (1 Vial)</h4>
+                <p>1x KLOW Matrix Vial (30-Day Supply)</p>
+              </div>
+            </div>
+            <div class="bundle-price-wrap">
+              <div class="bundle-compare-price">$170.00</div>
+              <div class="bundle-main-price" id="t1Price">$139.00</div>
+              <div class="bundle-per-vial">$139.00 / vial</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CTA BUTTON -->
+        <button type="button" class="cta-submit-btn" id="mainCtaBtn" onclick="handleCheckout()">
+          CLAIM MY ALLOCATED PROTOCOL &rarr;
+        </button>
+
+        <!-- GUARANTEE SNIPPET -->
+        <div class="guarantee-snippet">
+          <div class="guarantee-icon">🛡️</div>
+          <div class="guarantee-text">
+            <h5>60-Day "Empty Vial" 100% Money-Back Guarantee</h5>
+            <p>If you do not experience marked improvements in joint mobility, tissue recovery, and skin resilience within 60 days, we refund 100% of your order.</p>
+          </div>
+        </div>
+
+        <!-- TRUST BADGES -->
+        <div class="trust-badges-grid">
+          <div class="trust-badge-item">
+            <span class="icon">🇺🇸</span>
+            <span>US Compounded</span>
+          </div>
+          <div class="trust-badge-item">
+            <span class="icon">🔬</span>
+            <span>>99% HPLC Pure</span>
+          </div>
+          <div class="trust-badge-item">
+            <span class="icon">🩺</span>
+            <span>Doctor Guided</span>
+          </div>
+          <div class="trust-badge-item">
+            <span class="icon">🚚</span>
+            <span>Fast Cold Shipping</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- COMPARISON TABLE SECTION -->
+    <section class="section">
+      <h2 class="section-title">Why KLOW 4-in-1 Outperforms Single Peptides</h2>
+      <p class="section-subtitle">A direct comparison of multi-pathway synergy versus isolated peptide compounds.</p>
+
+      <div class="comparison-table-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Regeneration Pathway</th>
+              <th class="highlight">KLOW Matrix (4-in-1)</th>
+              <th>BPC-157 Alone</th>
+              <th>Generic Collagen Creams</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Micro-Vascular Angiogenesis</strong></td>
+              <td class="highlight">✓ Quadruple-Action Synergy</td>
+              <td>✓ Single pathway only</td>
+              <td>✗ Zero systemic absorption</td>
+            </tr>
+            <tr>
+              <td><strong>Dermal Fibroblast &amp; ECM Remodeling</strong></td>
+              <td class="highlight">✓ Driven by 50mg GHK-Cu</td>
+              <td>✗ Negligible dermal impact</td>
+              <td>✗ Surface temporary moisture</td>
+            </tr>
+            <tr>
+              <td><strong>Rapid Myofibrillar Actin Repair</strong></td>
+              <td class="highlight">✓ Driven by TB-500 (10mg)</td>
+              <td>✗ Not targeted for actin</td>
+              <td>✗ None</td>
+            </tr>
+            <tr>
+              <td><strong>Systemic Inflammatory Cooling</strong></td>
+              <td class="highlight">✓ Driven by KPV Tripeptide</td>
+              <td>⚠ Mild local reduction</td>
+              <td>✗ None</td>
+            </tr>
+            <tr>
+              <td><strong>Daily Administration Convenience</strong></td>
+              <td class="highlight">✓ 1 Single Pin Daily</td>
+              <td>⚠ Requires separate injections</td>
+              <td>✓ Topical only</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="section">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Everything you need to know about the KLOW Matrix clinical protocol.</p>
+
+      <div class="faq-grid">
+        <div class="faq-item open">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>How does the "Buy 2 Get 1 Free" and "Buy 3 Get 3 Free" offer work?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            When you select the 90-Day (3 Vials) or 180-Day (6 Vials) bundle, the free vials are automatically included in your shipment alongside the full bacteriostatic reconstitution supplies and physician review at no extra cost.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>What are the 4 peptides inside the KLOW Matrix?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            Each vial contains GHK-Cu (50mg) for collagen and skin density, BPC-157 (10mg) for tendon and gut repair, TB-500 (10mg) for muscle and cellular motility, and KPV (10mg) for systemic inflammation cooling.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>How is the formula reconstituted and stored?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            The formula arrives as a sterile lyophilized powder. You reconstitute it with the included bacteriostatic water and store it in the refrigerator. Each daily micro-dose takes less than 30 seconds.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>What is the 60-Day Money-Back Guarantee policy?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            If you follow the protocol and do not feel tangible improvements in tissue recovery, tendon comfort, and skin elasticity within 60 days, simply contact patient support for a 100% refund.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- STICKY MOBILE BOTTOM BAR -->
+  <div class="sticky-mobile-bar">
+    <div class="mobile-bar-price">
+      <h4 id="mobPrice">$299.00</h4>
+      <p id="mobTier">Buy 2 Get 1 Free (3 Vials)</p>
+    </div>
+    <button type="button" class="mobile-bar-btn" onclick="handleCheckout()">Claim Offer &rarr;</button>
+  </div>
+
+  <script>
+    let currentTier = 2;
+    let basePrice = 299;
+    let currentMode = 'onetime';
+
+    function selectTier(tierNum, price, compare, vials, title) {
+      currentTier = tierNum;
+      basePrice = price;
+      
+      document.querySelectorAll('.bundle-card').forEach(c => c.classList.remove('selected'));
+      document.getElementById('tier' + tierNum).classList.add('selected');
+
+      updatePricingDisplay();
+    }
+
+    function setMode(mode) {
+      currentMode = mode;
+      document.getElementById('btnOneTime').classList.toggle('active', mode === 'onetime');
+      document.getElementById('btnSubscribe').classList.toggle('active', mode === 'sub');
+      updatePricingDisplay();
+    }
+
+    function updatePricingDisplay() {
+      const discountMult = currentMode === 'sub' ? 0.9 : 1.0;
+      const finalPrice = Math.round(basePrice * discountMult);
+
+      document.getElementById('mobPrice').textContent = '$' + finalPrice + '.00';
+      if (currentTier === 2) {
+        document.getElementById('mobTier').textContent = 'Buy 2 Get 1 Free (3 Vials)' + (currentMode === 'sub' ? ' (Subscribed)' : '');
+      } else if (currentTier === 3) {
+        document.getElementById('mobTier').textContent = 'Buy 3 Get 3 Free (6 Vials)' + (currentMode === 'sub' ? ' (Subscribed)' : '');
+      } else {
+        document.getElementById('mobTier').textContent = 'Starter (1 Vial)' + (currentMode === 'sub' ? ' (Subscribed)' : '');
+      }
+    }
+
+    function setThumb(el, src) {
+      document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('mainProductImg').src = src;
+    }
+
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      item.classList.toggle('open');
+    }
+
+    function handleCheckout() {
+      const params = new URLSearchParams(window.location.search);
+      params.set('tier', currentTier);
+      params.set('mode', currentMode);
+      window.location.href = '#' + params.toString();
+    }
+  </script>
+
+</body>
+</html>

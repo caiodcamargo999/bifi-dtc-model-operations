@@ -99,6 +99,9 @@ MUP reciclado é a falha mais cara na clonagem de campanha.
 | `advertorial-html-builder` | 3 | copy → index.html + quiz |
 | `dtc-vsl-writer` | extra | VSL, UGC, talking-head |
 | `bifi-creative-handoff` | extra | copy → prompts de vídeo/imagem BIFI |
+| `ugc-video-producer` | extra | roteiro aprovado → vídeo UGC com avatar IA no Higgsfield (7 formatos) |
+| `video-localization` | extra | vencedor → dublagem com lip sync / versão transcriada em outro idioma |
+| `meta-campaign-upload` | extra | sobe campanha no Meta com IA desligada, sempre PAUSED |
 
 **Subagentes:** `voc-miner` · `avatar-researcher` · `mechanism-architect` · `copy-critic`
 

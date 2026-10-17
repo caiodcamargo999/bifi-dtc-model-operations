@@ -16,9 +16,11 @@ As 8 imagens foram geradas no Google Antigravity / Nano Banana. **Formato real d
 
 | Arquivo | Status | Observação |
 |---|---|---|
-| `AD01.jpg` | ✅ aprovado | |
-| `AD02.jpg` | 🔴 **regerar** | mostra o homem pinçando uma dobra mole com facilidade — o oposto do que o hook "Pinch Test" descreve. Prompt corrigido em `PROMPTS-PARA-NANO-BANANA.txt`. |
-| `AD03.jpg` | ✅ aprovado | |
+| `AD01.jpg` | ✅ aprovado | Versão Masculina 100% vestido: POV olhando para baixo; camiseta cinza totalmente esticada sobre o abdômen visceral projetado; jeans e cinto; zero pele/zero nudez (Meta compliant). |
+| `AD01-fem-pov.jpg` | ✅ aprovado | Variação Feminina POV: mulher olhando para baixo; camiseta escura cobrindo 100% do tronco; abdômen proeminente projetado sobre o jeans; zero pele exposta. |
+| `AD01-fem-espelho.jpg` | ✅ aprovado | Variação Feminina Espelho: selfie no espelho de mulher com sobrepeso na faixa dos 40 anos, quadril e cintura largos com barriga visceral bem evidente sob camiseta ajustada; claramente sobrepeso (não grávida); 100% vestida. |
+| `AD02.jpg` | ✅ aprovado | Corrigido: exatamente 2 mãos (sem erro de 3 mãos), camiseta cobrindo tronco superior (Meta compliant), teste de pinçamento com dedos escorregando na pele firme. |
+| `AD03.jpg` | ✅ aprovado | Corrigido: perfil lateral no espelho com barriga dura bem mais avantajada/visceral; camiseta cobrindo tronco (Meta compliant); 2 mãos apenas. |
 | `AD04.jpg` | ✅ aprovado | |
 | `AD05.jpg` | ✅ aprovado | tela do celular corretamente ilegível |
 | `AD06.jpg` | ✅ aprovado | melhor execução do lote — contradição roupa/corpo clara |
@@ -38,6 +40,7 @@ As 8 imagens foram geradas no Google Antigravity / Nano Banana. **Formato real d
 | Câmera | celular, mão, luz dura |
 | Enquadramento | amador, torto, cortado |
 | Sujeito | sem maquiagem, pele real, expressão específica |
+| Compliance Meta | **100% vestido / zero pele nua ou exposição corporal**, max 2 mãos por pessoa |
 
 > O feio é intencional e é o ativo. A imagem tem que passar como algo que alguém postaria —
 > não como criativo. Toda "melhora" (luz bonita, produto no quadro, sorriso) derruba o CTR.
@@ -46,36 +49,31 @@ As 8 imagens foram geradas no Google Antigravity / Nano Banana. **Formato real d
 
 ## Os 8 conceitos
 
-### AD01 · Ângulo 1 — ENDEREÇO
-**Avatar:** O Executivo de Barriga Dura · **Pareia com:** hooks 1.1–1.5 · ad text AD1
-**Momento:** POV em primeira pessoa — homem olhando para baixo, para a própria barriga, no banheiro.
-**Demonstra:** o abdômen firme que projeta para frente, visto do ângulo que ele evita.
+### AD01 · Ângulo 1 — ENDEREÇO (Opções Masculina e Feminina)
+**Avatar:** O Executivo / A Mulher 40+ de Barriga Dura · **Pareia com:** hooks 1.1–1.5 · ad text AD1
+**Momento:** POV em primeira pessoa ou espelho — olhando para baixo, para a própria barriga projetada sob a roupa.
+**Demonstra:** o abdômen firme que projeta para frente como domo, esticando a camiseta, visto do ângulo que a pessoa evita.
 **Emoção:** avaliação silenciosa, não desespero.
-**Cenário:** banheiro doméstico, piso de azulejo, pés visíveis, bancada ao fundo.
+**Cenário:** banheiro doméstico / quarto, piso de azulejo, pés visíveis. 100% vestido (camiseta ajustada sobre jeans, zero nudez).
+* **Variações disponíveis:** `AD01.jpg` (masculino POV), `AD01-fem-pov.jpg` (feminino POV), `AD01-fem-espelho.jpg` (feminino espelho).
 
 ---
 
-### AD02 · Ângulo 2 — QUALIFICAÇÃO (The Pinch Test) ⭐ 🔴 REGERAR
+### AD02 · Ângulo 2 — QUALIFICAÇÃO (The Pinch Test) ⭐ ✅ APROVADO
 **Avatar:** O Executivo · **Pareia com:** hooks 2.1–2.5 · ad text AD2
-**Momento:** a mão tentando pinçar a barriga — os dedos **não conseguem** fechar sobre nada.
+**Momento:** a mão tentando pinçar a barriga — os dedos **não conseguem** fechar sobre nada (pele firme).
 **Demonstra:** **o teste de consciência do brief, executado no quadro.** É o conceito herói do lote.
 **Emoção:** concentração, quase curiosidade — ele está testando, não sofrendo.
-**Cenário:** espelho de banheiro, luz de cima, camiseta levantada até o peito.
-
-> Este é o único conceito que **ensina o teste sem uma palavra**. Se só um for produzido, é este.
->
-> 🔴 **A saída atual falhou.** Mostra os dedos pinçando uma dobra mole com facilidade — exatamente
-> o resultado que o teste deveria descartar. Regere com o prompt corrigido em
-> `PROMPTS-PARA-NANO-BANANA.txt` antes de usar esta imagem em qualquer criativo.
+**Cenário:** espelho de banheiro, luz de cima, camiseta cinza vestida (tronco coberto para Meta compliance), exatamente duas mãos no quadro (uma no celular tirando a foto, uma tentando pinçar).
 
 ---
 
-### AD03 · Ângulo 3 — ALCANCE
+### AD03 · Ângulo 3 — ALCANCE ✅ APROVADO
 **Avatar:** O Ex-Atleta · **Pareia com:** hooks 3.1–3.5 · ad text AD3
-**Momento:** perfil lateral no espelho, mão espalmada pressionando o estômago firme.
-**Demonstra:** a rigidez — a mão pressiona e o abdômen não afunda.
-**Emoção:** constatação, mandíbula tensa.
-**Cenário:** espelho de porta de quarto, luz de janela dura, roupa de treino.
+**Momento:** perfil lateral no espelho, mão espalmada pressionando o estômago firme e visivelmente avantajado.
+**Demonstra:** a rigidez e volume visceral — abdômen bem proeminente/avantajado projetado para frente, sob camiseta atlética (sem nudez).
+**Emoção:** constatação, seriedade.
+**Cenário:** espelho de quarto, luz de janela dura, roupa de treino/camiseta escura, cama desfeita ao fundo.
 
 ---
 

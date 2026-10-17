@@ -14,3 +14,7 @@ desktop.ini
 *.bak
 *_old.*
 _scratch/
+
+# Dependências e dados de terceiros
+node_modules/
+knowledge/*.xlsx

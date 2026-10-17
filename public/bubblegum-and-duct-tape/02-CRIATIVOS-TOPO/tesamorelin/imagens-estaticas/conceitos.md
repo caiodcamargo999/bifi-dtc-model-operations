@@ -1,0 +1,64 @@
+# Conceitos Visuais e Prompts — Criativos Estáticos AD01 a AD08 (Tesamorelin Bubblegum)
+
+Pacote completo de 8 criativos estáticos de alta congruência com os **Advertoriais e Long Text Ads de Tesamorelin** do projeto Bubblegum and Duct Tape.
+
+Seguindo o padrão de **UGC Cru Validado (Formato 1:1, Celular Real, Vestuário Completo com Camiseta/Camisa, Sem Nudez, Sem Texto, Sem Logo, Sem Produto no Quadro)** definido em `knowledge/frameworks/05-static-ad-format.md`.
+
+---
+
+## 📸 MATRIZ DE IMAGENS ESTÁTICAS (AD01 a AD08):
+
+| Arquivo | Avatar & Cena | Ângulo do Anúncio | Advertorial Pareado |
+| :--- | :--- | :--- | :--- |
+| **AD01.jpg** | Mãos maduras segurando laudo impresso colorido de DEXA/composição corporal na mesa com café. | AD01: The "Dual-Tissue" Metabolic Trap | `pos-glp1` (ADV 01) |
+| **AD02.jpg** | Homem atlético (48 anos) em camiseta de treino cinza pressionando a mão na parede abdominal. | AD02: Somatopausa & O Paradoxo da Disciplina | `somatopause-visceral` (ADV 02) |
+| **AD03.jpg** | Executivo corporativo (55 anos) abotoando camisa social sob medida com tensão no botão central. | AD03: Wake-Up Call Executivo & Biomarcadores | `biomarker-executive` (ADV 03) |
+| **AD04.jpg** | Homem maduro (50 anos) em polo azul-marinho revisando pasta clínica em consultório médico. | AD04: The DEXA Scan Wake-Up Call | `pos-glp1` (ADV 01) |
+| **AD05.jpg** | Homem maduro (52 anos) em camiseta cinza com fita métrica e tablet exibindo biomarcadores. | AD05: The Sarcopenic Midsection Paradox | `pos-glp1` (ADV 01) |
+| **AD06.jpg** | Homem maduro (52 anos) em home study estudando livreto de anatomia da parede abdominal. | AD06: The "Two-Compartment" Anatomy Guide | `pos-glp1` (ADV 01) |
+| **AD07.jpg** | Homem (52 anos) sentado na cama à noite verificando app de sono/ritmo circadiano no celular. | AD07: The Nighttime Pituitary Signal | `pos-glp1` (ADV 01) |
+| **AD08.jpg** | David Miller (52 anos) na cozinha com caneca de café olhando pela janela com expressão saudável. | AD08: The "Scale Illusion" Discovery | `pos-glp1` (ADV 01) |
+
+---
+
+## 🎨 PROMPTS DETALHADOS:
+
+### AD01.jpg — DEXA Scan & Tissue Chart POV
+```text
+Square 1:1 aspect ratio. Candid handheld amateur smartphone POV photo from slightly above. A 52-year-old man's hands holding a color-printed medical body composition report (showing anatomical cross-sectional diagrams and tissue density charts) over a wooden kitchen table. Next to the paper is a clean white ceramic coffee mug and reading glasses. Soft natural morning window light illuminating the paper and tabletop. Realistic everyday setting, visible skin texture on hands, unposed authentic moment. No superimposed text overlays, no watermarks, no logos, natural mobile camera aesthetic, high realism.
+```
+
+### AD02.jpg — The Muscle Wall & Discipline Paradox
+```text
+Square 1:1 format. Candid high-angle POV smartphone snapshot taken in a standard residential bathroom. A 48-year-old athletic-framed man wearing a fitted dark charcoal workout t-shirt is looking down at his midsection, pressing his firm hand with splayed fingers against his rock-hard, dome-shaped protruding upper abdomen over his shirt. The fabric of the t-shirt stretches tightly over the firm round abdominal protrusion while fitting normally on his athletic chest and shoulders. Harsh overhead yellow-tinted bathroom vanity lighting reflecting slightly off his face and hands. In the background and bathroom countertop, real domestic clutter: a coiled fabric tape measure, a worn gym sweat towel, and bathroom toiletries. Amateur handheld framing, slightly overexposed highlights, completely unposed. No text, no captions, no logos, no watermarks, no graphics overlaid on the image. visible pores, micro-texture, natural skin imperfections, subtle peach fuzz, natural skin sheen, no airbushing, no smoothing filters
+```
+
+### AD03.jpg — Executive Custom Shirt Strain
+```text
+Square 1:1 format. Candid handheld smartphone snapshot taken in a bedroom during morning routine. A 55-year-old corporate executive man with tired eyes and graying temples is standing in front of a full-length wardrobe mirror, struggling to fasten the buttons of a crisp light-blue dress shirt. The center button over his firm, protruding visceral stomach is visibly straining and pulling the cotton fabric sideways with a slight gap between buttonholes, demonstrating visceral girth expansion. He wears charcoal business slacks. In the background, a leather work briefcase and coffee mug on a wooden desk. Natural morning light mixed with warm indoor bedside lamp lighting. Slightly imperfect amateur framing, candid vulnerability. No text, no captions, no logos, no watermarks, no graphics overlaid on the image. visible pores, micro-texture, natural skin imperfections, subtle peach fuzz, natural skin sheen, no airbushing, no smoothing filters
+```
+
+### AD04.jpg — Clinical Folder Consultation
+```text
+Square 1:1 aspect ratio. Candid smartphone photo taken in an ambiently lit medical office consultation room. A distinguished 50-year-old Caucasian man with short graying hair wearing a comfortable dark navy knit polo shirt sitting in a modern chair, holding a manila health folder and looking down thoughtfully as he reviews his health report. Warm natural indoor lighting, unposed natural posture, visible facial micro-texture and skin pores, authentic documentary aesthetic. No added graphic text, no logos, no watermarks, no artificial filters.
+```
+
+### AD05.jpg — Home Metric & Tape Measure
+```text
+Square 1:1 aspect ratio. Candid high-angle handheld smartphone snapshot in a modern residential bedroom. A 52-year-old man in a well-fitting charcoal gray crewneck t-shirt is holding a coiled vinyl medical measuring tape in one hand while standing near a dresser with a tablet showing health biomarker charts. Morning window light illuminating the room, authentic micro-textures, completely unposed, realistic domestic background with a closet door and wooden dresser. No text overlays, no watermarks, no logos, natural mobile photography aesthetic.
+```
+
+### AD06.jpg — Abdominal Anatomy Study
+```text
+Square 1:1 aspect ratio. Candid handheld amateur smartphone snapshot in a modern home study or consultation space. A mature 52-year-old man in a casual navy sweater holding a small medical anatomical booklet with a pen, reviewing an illustration of the abdominal wall and organ cavity over a wooden desk. Natural ambient daylight from side window, realistic shallow depth of field, unposed authentic educational moment. No superimposed text overlays, no watermarks, no logos, natural mobile photography aesthetic.
+```
+
+### AD07.jpg — Nighttime Sleep Tracking
+```text
+Square 1:1 aspect ratio. Candid handheld amateur smartphone snapshot in a master bedroom during nighttime. A 52-year-old man in a comfortable long-sleeve dark heather cotton shirt is sitting on the side of a bed, looking down at his sleep tracking app on a smartphone. On the wooden nightstand next to him: a clear glass of water and a warm bedside table lamp casting soft ambient light. Realistic domestic nighttime mood, natural skin texture, visible pores, unposed authentic lifestyle photo. No graphic text overlays, no watermarks, no logos.
+```
+
+### AD08.jpg — Morning Recomposition Lifestyle
+```text
+Square 1:1 aspect ratio. Candid authentic smartphone photo taken in a bright, modern domestic kitchen. A 52-year-old Caucasian man with salt-and-pepper hair wearing a casual dark navy crewneck sweater is standing next to a kitchen island with a warm ceramic coffee mug, looking thoughtfully out the morning window with a confident, healthy expression. Soft natural morning window light, realistic kitchen background with wood cabinets, visible pores and natural skin micro-texture, completely unposed real-life photo. No superimposed text overlays, no watermarks, no logos.
+```

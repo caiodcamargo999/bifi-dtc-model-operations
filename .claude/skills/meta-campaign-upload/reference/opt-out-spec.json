@@ -1,0 +1,27 @@
+{
+  "creative_features_spec": {
+    "adapt_to_placement":            { "enroll_status": "OPT_OUT" },
+    "add_text_overlay":              { "enroll_status": "OPT_OUT" },
+    "creative_stickers":             { "enroll_status": "OPT_OUT" },
+    "description_automation":        { "enroll_status": "OPT_OUT" },
+    "enhance_cta":                   { "enroll_status": "OPT_OUT" },
+    "image_animation":               { "enroll_status": "OPT_OUT" },
+    "image_background_gen":          { "enroll_status": "OPT_OUT" },
+    "image_brightness_and_contrast": { "enroll_status": "OPT_OUT" },
+    "image_templates":               { "enroll_status": "OPT_OUT" },
+    "image_text_translation":        { "enroll_status": "OPT_OUT" },
+    "image_touchups":                { "enroll_status": "OPT_OUT" },
+    "image_uncrop":                  { "enroll_status": "OPT_OUT" },
+    "inline_comment":                { "enroll_status": "OPT_OUT" },
+    "media_type_automation":         { "enroll_status": "OPT_OUT" },
+    "pac_relaxation":                { "enroll_status": "OPT_OUT" },
+    "product_extensions":            { "enroll_status": "OPT_OUT" },
+    "reveal_details_over_time":      { "enroll_status": "OPT_OUT" },
+    "text_optimizations":            { "enroll_status": "OPT_OUT" },
+    "text_translation":              { "enroll_status": "OPT_OUT" },
+    "translate_voiceover":           { "enroll_status": "OPT_OUT" },
+    "video_auto_crop":               { "enroll_status": "OPT_OUT" },
+    "video_filtering":               { "enroll_status": "OPT_OUT" },
+    "video_uncrop":                  { "enroll_status": "OPT_OUT" }
+  }
+}

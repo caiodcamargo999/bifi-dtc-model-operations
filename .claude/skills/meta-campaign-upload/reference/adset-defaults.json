@@ -1,0 +1,53 @@
+{
+  "_comment": "Defaults obrigatórios do ad set. Aplicar SEMPRE, sem perguntar. Ver SKILL.md passo 2.",
+
+  "targeting": {
+    "geo_locations": {
+      "countries": ["US"]
+    },
+    "excluded_geo_locations": {
+      "regions": [
+        { "key": "3844", "name": "Alaska", "country": "US" }
+      ]
+    },
+    "age_min": 18,
+    "age_max": 65,
+
+    "targeting_automation": {
+      "advantage_audience": 0
+    },
+    "targeting_optimization": "none",
+    "targeting_relaxation_types": {
+      "lookalike": 0,
+      "custom_audience": 0
+    },
+
+    "publisher_platforms": ["facebook", "instagram"],
+    "facebook_positions": ["feed", "video_feeds", "marketplace", "story", "facebook_reels"],
+    "instagram_positions": ["stream", "story", "reels", "explore", "profile_feed"]
+  },
+
+  "adset_fields": {
+    "is_dynamic_creative": false,
+    "is_dynamic_creative_format_automation": false,
+    "biz_ai_enabled_state": "NOT_ENABLED"
+  },
+
+  "_notes": {
+    "geo_locations": "Estados Unidos é o destino padrão. Só troque se o usuário pedir outro mercado explicitamente.",
+    "excluded_alaska": "Alasca sai sempre. region key 3844 (Alabama é 3843 — as chaves são alfabéticas a partir de 3843). Não confunda os dois.",
+    "hawaii": "Havaí NÃO é excluído. Muita gente exclui os dois juntos por frete — mas o pedido foi só o Alasca. Só exclua o Havaí se o usuário pedir (key 3854).",
+    "age_max_65": "65 é o valor MÁXIMO da API e significa 65+. Não existe valor maior. Não 'corrija' para 99 ou 100 — a chamada é rejeitada.",
+    "age_min_18": "18 é o mínimo permitido. Categorias especiais (habitação, crédito, emprego) forçam 18 de qualquer forma.",
+
+    "advantage_audience": "0 = 'Further limit your audience' / setup original no Ads Manager. Com 1, a Meta trata idade e geo como SUGESTÃO: o mínimo de idade não pode passar de 25 como controle e o máximo vira apenas sugestão. Só com 0 a faixa 18–65 e a exclusão do Alasca viram limite de verdade.",
+    "targeting_optimization": "'none' desliga Advantage+ detailed targeting (antigo detailed targeting expansion). O valor que LIGA é 'expansion_all'.",
+    "targeting_relaxation_types_lookalike": "0 desliga Advantage+ lookalike (antigo lookalike expansion). ATENÇÃO: a Meta liga por padrão em objetivos suportados. Confirmado na doc oficial.",
+    "targeting_relaxation_types_custom_audience": "0 desliga a expansão equivalente sobre custom audience. Chave irmã de lookalike no mesmo objeto.",
+
+    "publisher_platforms": "Tem de estar presente. Omitir = Advantage+ Placements ligado. Esta lista é o default; ajuste as plataformas conforme o pedido, mas NUNCA remova o campo.",
+    "audience_network": "Não entra por padrão. É decisão de mídia do usuário, não de IA — adicione só se ele pedir.",
+    "messenger_threads_whatsapp": "Mesma regra: só se o usuário pedir.",
+    "biz_ai_enabled_state": "NOT_ENABLED desliga a IA de resposta a mensagens. Alternativa equivalente: OPT_OUT_ONBOARDING."
+  }
+}

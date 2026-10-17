@@ -1,0 +1,8 @@
+{
+  "name": "bifi-dtc-model",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@vercel/analytics": "^1.6.1"
+  }
+}
